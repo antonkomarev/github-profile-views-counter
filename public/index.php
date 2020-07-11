@@ -18,12 +18,19 @@ $basePath = realpath(__DIR__ . '/..');
 $resourcesPath = $basePath . '/resources';
 $storagePath = $basePath . '/storage';
 
-$username = $_GET['username'];
-
 require_once $basePath . '/src/CounterImageRendererService.php';
 require_once $basePath . '/src/CounterFileRepository.php';
 
-$counterRepository = new CounterFileRepository($storagePath, $username . '-views-count');
+$username = $_GET['username'] ?? '';
+$username = trim($username);
+
+if ($username === '') {
+    $counterFileName = 'views-count';
+} else {
+    $counterFileName = $username . '-views-count';
+}
+
+$counterRepository = new CounterFileRepository($storagePath, $counterFileName);
 $counterImageRenderer = new CounterImageRendererService($resourcesPath, 'views-count.svg', $counterRepository);
 
 header('Content-Type: image/svg+xml');
