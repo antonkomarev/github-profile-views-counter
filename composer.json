@@ -2,14 +2,25 @@
     "name": "komarev/github-profile-views-counter",
     "type": "project",
     "license": "MIT",
+    "keywords": [
+        "github",
+        "github-profile",
+        "github-counter",
+        "views-counter",
+        "visitor-counter",
+        "views-counter"
+    ],
     "authors": [
         {
             "name": "Anton Komarev",
-            "email": "anton@komarev.com"
+            "email": "anton@komarev.com",
+            "homepage": "https://komarev.com",
+            "role": "Developer"
         }
     ],
     "require": {
-        "php": "^7.4"
+    },
+    "require-dev": {
     },
     "autoload": {
         "psr-4": {
