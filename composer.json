@@ -1,0 +1,24 @@
+{
+    "name": "komarev/github-profile-views-counter",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Anton Komarev",
+            "email": "anton@komarev.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Komarev\\GitHubProfileViewsCounter\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable" : true
+}
