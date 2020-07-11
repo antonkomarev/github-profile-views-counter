@@ -8,7 +8,7 @@ It counts how many times your profile has been viewed.
 
 Create your GitHub Profile repository. GitHub magic will happen as soon as you will create a new repository named equally to your username.
 
-Here is my profile: [https://github.com/antonkomarev/antonkomarev](https://github.com/antonkomarev/antonkomarev)
+Here is my profile repository: [https://github.com/antonkomarev/antonkomarev](https://github.com/antonkomarev/antonkomarev)
 
 You need to host this app on your server and display it via Markdown syntax:
 
