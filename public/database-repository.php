@@ -64,16 +64,25 @@ try {
     $counterRepository->addViewByUsername($username);
     $count = $counterRepository->getViewsCountByUsername($username);
 
+    $style = $_GET['style'];
+    if ($style === 'pixel') {
+        echo '<svg xmlns="http://www.w3.org/2000/svg"/>';
+        exit;
+    }
+
     $counterImageRenderer = new CounterImageRendererService($counterBadgePath);
     $counterImage = $counterImageRenderer->getImageWithCount($count);
 
     echo $counterImage;
+    exit;
 } catch (InvalidPathException $exception) {
     $errorImageRenderer = new ErrorImageRendererService($errorBadgePath);
 
     echo $errorImageRenderer->getImageWithMessage('Application environment file is missing');
+    exit;
 } catch (Exception $exception) {
     $errorImageRenderer = new ErrorImageRendererService($errorBadgePath);
 
     echo $errorImageRenderer->getImageWithMessage($exception->getMessage());
+    exit;
 }

@@ -53,7 +53,7 @@ try {
 
     $style = $_GET['style'];
     if ($style === 'pixel') {
-        echo '<svg/>';
+        echo '<svg xmlns="http://www.w3.org/2000/svg"/>';
         exit;
     }
 
@@ -61,8 +61,10 @@ try {
     $counterImage = $counterImageRenderer->getImageWithCount($count);
 
     echo $counterImage;
+    exit;
 } catch (Exception $exception) {
     $errorImageRenderer = new ErrorImageRendererService($errorBadgePath);
 
     echo $errorImageRenderer->getImageWithMessage($exception->getMessage());
+    exit;
 }
