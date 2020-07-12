@@ -38,7 +38,7 @@ This URL will render SVG image with profile views counter and will increment it 
 
 #### Self-hosted application customization
 
-By default, this application using file repository and counters stored in `storage/{$username}-views-count` files.
+By default, this application using file repository, visits log stored in `storage/{$username}-views` and counter stored in `storage/{$username}-views-count` file.
 
 You can switch to database repository, then you will have to copy `.env.example` file to `.env` and fill in database configuration.
 
