@@ -40,7 +40,7 @@ try {
     $username = trim($username);
 
     if ($username === '') {
-        throw new Exception('Query property `username` is missing');
+        throw new InvalidArgumentException('Query property `username` is missing');
     }
 
     $dsn = sprintf(

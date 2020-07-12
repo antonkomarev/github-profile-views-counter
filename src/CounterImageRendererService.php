@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 namespace Komarev\GitHubProfileViewsCounter;
 
-use InvalidArgumentException;
+use Contracts\Komarev\GitHubProfileViewsCounter\InvalidPathException;
 
 final class CounterImageRendererService
 {
@@ -22,7 +22,7 @@ final class CounterImageRendererService
     public function __construct(string $sourceImagePath)
     {
         if (!file_exists($sourceImagePath)) {
-            throw new InvalidArgumentException('Counter source image not found');
+            throw new InvalidPathException('Counter source image not found');
         }
 
         $this->sourceImagePath = $sourceImagePath;
