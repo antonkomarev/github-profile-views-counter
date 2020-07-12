@@ -17,20 +17,20 @@ use Contracts\Komarev\GitHubProfileViewsCounter\InvalidPathException;
 
 final class CounterImageRendererService
 {
-    private string $sourceImagePath;
+    private string $counterBadgePath;
 
-    public function __construct(string $sourceImagePath)
+    public function __construct(string $counterBadgePath)
     {
-        if (!file_exists($sourceImagePath)) {
-            throw new InvalidPathException('Counter source image not found');
+        if (!file_exists($counterBadgePath)) {
+            throw new InvalidPathException('Counter badge image not found');
         }
 
-        $this->sourceImagePath = $sourceImagePath;
+        $this->counterBadgePath = $counterBadgePath;
     }
 
     public function getImageWithCount(int $count): string
     {
-        $counterImage = file_get_contents($this->sourceImagePath);
+        $counterImage = file_get_contents($this->counterBadgePath);
 
         return $this->replaceImagePlaceholders($counterImage, $count);
     }
