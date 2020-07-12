@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Komarev\GitHubProfileViewsCounter;
 
 use Contracts\Komarev\GitHubProfileViewsCounter\CounterRepositoryInterface;
+use InvalidArgumentException;
 
 final class CounterFileRepository implements CounterRepositoryInterface
 {
@@ -21,6 +22,14 @@ final class CounterFileRepository implements CounterRepositoryInterface
 
     public function __construct(string $storagePath)
     {
+        if (!is_dir($storagePath)) {
+            throw new InvalidArgumentException('Counter storage is not a directory');
+        }
+
+        if (!is_writable($storagePath)) {
+            throw new InvalidArgumentException('Counter storage is not writable');
+        }
+
         $this->storagePath = $storagePath;
     }
 
