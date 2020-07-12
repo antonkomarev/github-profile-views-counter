@@ -10,17 +10,33 @@ Create your GitHub Profile repository. GitHub magic will happen as soon as you w
 
 Here is my profile repository: [https://github.com/antonkomarev/antonkomarev](https://github.com/antonkomarev/antonkomarev)
 
-You need to host this app on your server and display it via Markdown syntax:
+### Out of the box
+
+You need to add counter in README.md file in your profile repository via Markdown syntax:
 
 ```markdown
-![](https://komarev.com/github-profile-views-counter/?username=antonkomarev)
+![](https://komarev.com/ghpvc/?username=antonkomarev)
 ```
+
+> Don't forget to replace example `username` with your own
+
+It is completely free. You can [help me cut server costs](https://paypal.me/antonkomarev) if you like this service. We don't track any personal information since GitHub proxies all images.  
+
+### Self-hosted
 
 Only `public/index.php` should be exposed.
 
 This URL will render SVG image with profile views counter and will increment it on each view of your profile.
 
-Counter stored in `storage/views-count` file.
+By default, this application using file-repository and counters stored in `storage/{$username}-views-count` files.
+
+Optionally you could switch to database-repository, then you will have to copy `.env.example` file to `.env` and fill in database configuration.
+
+You need to host this app on your server and display it via Markdown syntax:
+
+```markdown
+![](https://your.application.path/?username=your-github-username)
+``` 
 
 ## License
 
