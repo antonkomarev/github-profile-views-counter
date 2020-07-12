@@ -49,8 +49,8 @@ final class CounterImageRendererService
         $counterTextLength = $minCounterTextLength + (80 * $countLength);
         $counterTextMarginLeft = $minCounterTextMarginLeft + (40 * $countLength);
 
-        $counterImage = str_replace('%COUNT%', $count, $counterImage);
         $counterImage = str_replace('%IMAGE_WIDTH%', $imageWidth, $counterImage);
+        $counterImage = str_replace('%COUNT%', $count, $counterImage);
         $counterImage = str_replace('%COUNTER_BACKGROUND_WIDTH%', $counterBackgroundWidth, $counterImage);
         $counterImage = str_replace('%COUNTER_TEXT_LENGTH%', $counterTextLength, $counterImage);
         $counterImage = str_replace('%COUNTER_TEXT_MARGIN_LEFT%', $counterTextMarginLeft, $counterImage);
