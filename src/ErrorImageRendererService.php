@@ -51,9 +51,9 @@ final class ErrorImageRendererService
 
         $errorImage = str_replace('%MESSAGE%', $message, $errorImage);
         $errorImage = str_replace('%IMAGE_WIDTH%', $imageWidth, $errorImage);
-        $errorImage = str_replace('%COUNTER_BACKGROUND_WIDTH%', $counterBackgroundWidth, $errorImage);
-        $errorImage = str_replace('%COUNTER_TEXT_LENGTH%', $counterTextLength, $errorImage);
-        $errorImage = str_replace('%COUNTER_TEXT_MARGIN_LEFT%', $counterTextMarginLeft, $errorImage);
+        $errorImage = str_replace('%MESSAGE_BACKGROUND_WIDTH%', $counterBackgroundWidth, $errorImage);
+        $errorImage = str_replace('%MESSAGE_TEXT_LENGTH%', $counterTextLength, $errorImage);
+        $errorImage = str_replace('%MESSAGE_TEXT_MARGIN_LEFT%', $counterTextMarginLeft, $errorImage);
 
         return $errorImage;
     }
