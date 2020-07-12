@@ -13,7 +13,7 @@ declare(strict_types=1);
 
 use Dotenv\Dotenv;
 use Dotenv\Exception\InvalidPathException;
-use Komarev\GitHubProfileViewsCounter\CounterImageRendererService;
+use Komarev\GitHubProfileViewsCounter\BadgeImageRendererService;
 use Komarev\GitHubProfileViewsCounter\CounterDatabaseRepository;
 use Komarev\GitHubProfileViewsCounter\ErrorImageRendererService;
 
@@ -24,6 +24,8 @@ require $basePath . '/vendor/autoload.php';
 
 header('Content-Type: image/svg+xml');
 header('Cache-Control: max-age=0, no-cache, no-store, must-revalidate');
+
+$badgeImageRenderer = new BadgeImageRendererService();
 
 try {
     $dotEnv = Dotenv::createImmutable($basePath);
@@ -38,17 +40,14 @@ try {
         'DB_NAME',
     ]);
 
-    $counterBadgePath = $basePath . '/resources/views-count-badge.svg';
-    $errorBadgePath = $basePath . '/resources/error-badge.svg';
+    $badgeImagePath = $basePath . '/resources/badge.svg';
 
     $style = $_GET['style'] ?? null;
     $username = $_GET['username'] ?? '';
     $username = trim($username);
 
     if ($username === '') {
-        $errorImageRenderer = new ErrorImageRendererService($errorBadgePath);
-
-        echo $errorImageRenderer->getImageWithMessage('Invalid query parameter: username');
+        echo $badgeImageRenderer->renderBadgeWithError($badgeImagePath, 'Invalid query parameter: username');
         exit;
     }
 
@@ -71,19 +70,12 @@ try {
 
     $count = $counterRepository->getViewsCountByUsername($username);
 
-    $counterImageRenderer = new CounterImageRendererService($counterBadgePath);
-    $counterImage = $counterImageRenderer->getImageWithCount($count);
-
-    echo $counterImage;
+    echo $badgeImageRenderer->renderBadgeWithCount($badgeImagePath, $count);
     exit;
 } catch (InvalidPathException $exception) {
-    $errorImageRenderer = new ErrorImageRendererService($errorBadgePath);
-
-    echo $errorImageRenderer->getImageWithMessage('Application environment file is missing');
+    echo $badgeImageRenderer->renderBadgeWithError($badgeImagePath, 'Application environment file is missing');
     exit;
 } catch (Exception $exception) {
-    $errorImageRenderer = new ErrorImageRendererService($errorBadgePath);
-
-    echo $errorImageRenderer->getImageWithMessage($exception->getMessage());
+    echo $badgeImageRenderer->renderBadgeWithError($badgeImagePath, $exception->getMessage());
     exit;
 }

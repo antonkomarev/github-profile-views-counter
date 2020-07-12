@@ -12,9 +12,8 @@
 declare(strict_types=1);
 
 use Dotenv\Dotenv;
-use Komarev\GitHubProfileViewsCounter\CounterImageRendererService;
+use Komarev\GitHubProfileViewsCounter\BadgeImageRendererService;
 use Komarev\GitHubProfileViewsCounter\CounterFileRepository;
-use Komarev\GitHubProfileViewsCounter\ErrorImageRendererService;
 
 $basePath = realpath(__DIR__ . '/..');
 
@@ -24,12 +23,13 @@ require $basePath . '/vendor/autoload.php';
 header('Content-Type: image/svg+xml');
 header('Cache-Control: max-age=0, no-cache, no-store, must-revalidate');
 
+$badgeImageRenderer = new BadgeImageRendererService();
+
 try {
     $dotEnv = Dotenv::createImmutable($basePath);
     $dotEnv->safeLoad();
 
-    $counterBadgePath = $basePath . '/resources/views-count-badge.svg';
-    $errorBadgePath = $basePath . '/resources/error-badge.svg';
+    $badgeImagePath = $basePath . '/resources/badge.svg';
 
     if (!isset($_ENV['FILE_STORAGE_PATH']) || $_ENV['FILE_STORAGE_PATH'] === null) {
         $storagePath = $basePath . '/storage';
@@ -42,9 +42,7 @@ try {
     $username = trim($username);
 
     if ($username === '') {
-        $errorImageRenderer = new ErrorImageRendererService($errorBadgePath);
-
-        echo $errorImageRenderer->getImageWithMessage('Invalid query parameter: username');
+        echo $badgeImageRenderer->renderBadgeWithError($badgeImagePath, 'Invalid query parameter: username');
         exit;
     }
 
@@ -58,14 +56,9 @@ try {
 
     $count = $counterRepository->getViewsCountByUsername($username);
 
-    $counterImageRenderer = new CounterImageRendererService($counterBadgePath);
-    $counterImage = $counterImageRenderer->getImageWithCount($count);
-
-    echo $counterImage;
+    echo $badgeImageRenderer->renderBadgeWithCount($badgeImagePath, $count);
     exit;
 } catch (Exception $exception) {
-    $errorImageRenderer = new ErrorImageRendererService($errorBadgePath);
-
-    echo $errorImageRenderer->getImageWithMessage($exception->getMessage());
+    echo $badgeImageRenderer->renderBadgeWithError($badgeImagePath, $exception->getMessage());
     exit;
 }
