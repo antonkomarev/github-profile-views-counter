@@ -17,20 +17,35 @@ use Contracts\Komarev\GitHubProfileViewsCounter\CounterRepositoryInterface;
 
 final class CounterFileRepository implements CounterRepositoryInterface
 {
-    private string $counterPath;
+    private string $storagePath;
 
-    public function __construct(string $storagePath, string $counterFileName)
+    public function __construct(string $storagePath)
     {
-        $this->counterPath = $storagePath . '/' . $counterFileName;
+        $this->storagePath = $storagePath;
     }
 
-    public function getCount(): int
+    public function getCountByUsername(string $username): int
     {
-        return file_exists($this->counterPath) ? (int) file_get_contents($this->counterPath) : 0;
+        $counterFilePath = $this->getCounterFilePath($username);
+
+        return file_exists($counterFilePath) ? (int) file_get_contents($counterFilePath) : 0;
     }
 
-    public function incrementCount(): void
+    public function incrementCountByUsername(string $username): void
     {
-        file_put_contents($this->counterPath, $this->getCount() + 1);
+        $counterFilePath = $this->getCounterFilePath($username);
+
+        file_put_contents($counterFilePath, $this->getCountByUsername($username) + 1);
+    }
+
+    private function getCounterFilePath(string $username): string
+    {
+        if ($username === '') {
+            $counterFileName = 'views-count';
+        } else {
+            $counterFileName = $username . '-views-count';
+        }
+
+        return $this->storagePath . '/' . $counterFileName;
     }
 }

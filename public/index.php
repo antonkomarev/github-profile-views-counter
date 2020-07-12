@@ -23,22 +23,17 @@ require $basePath . '/vendor/autoload.php';
 $username = $_GET['username'] ?? '';
 $username = trim($username);
 
-if ($username === '') {
-    $counterFileName = 'views-count';
-} else {
-    $counterFileName = $username . '-views-count';
-}
-
 try {
-    $counterRepository = new CounterFileRepository($storagePath, $counterFileName);
+    $counterRepository = new CounterFileRepository($storagePath);
     $counterImageRenderer = new CounterImageRendererService($counterSourceImagePath);
+
+    $counterRepository->incrementCountByUsername($username);
+    $count = $counterRepository->getCountByUsername($username);
 
     header('Content-Type: image/svg+xml');
     header('Cache-Control: max-age=0, no-cache, no-store, must-revalidate');
 
-    $counterRepository->incrementCount();
-
-    echo $counterImageRenderer->getImageWithCount($counterRepository->getCount());
+    echo $counterImageRenderer->getImageWithCount($count);
 } catch (Exception $exception) {
     echo $exception->getMessage();
 }
