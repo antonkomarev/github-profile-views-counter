@@ -22,7 +22,7 @@ You need to add counter in README.md file in your profile repository via Markdow
 
 > Don't forget to replace example `username` with your own
 
-It is completely free. You can [help me cut server costs](https://paypal.me/antonkomarev) if you like this service. We don't track any personal information since GitHub proxies all images.  
+This service launched as experiment. It is completely free. You can [help me cut server costs](https://paypal.me/antonkomarev) if you like this service. I don't track any personal information since GitHub proxies all images.  
 
 ### Self-hosted application
 
