@@ -5,7 +5,7 @@
     </g>
     <g fill="#fff" text-anchor="middle" font-family="Verdana,Geneva,DejaVu Sans,sans-serif"
        text-rendering="geometricPrecision" font-size="110">
-        <text x="405" y="140" transform="scale(.1)" textLength="690">Profile views</text>
+        <text x="405" y="140" transform="scale(.1)" textLength="690">%LABEL%</text>
         <text x="%COUNTER_TEXT_MARGIN_LEFT%" y="140" transform="scale(.1)" textLength="%COUNTER_TEXT_LENGTH%">%COUNT%</text>
     </g>
 </svg>

@@ -44,12 +44,14 @@ final class CounterImageRendererService
         $minCounterTextLength = 70;
         $minCounterTextMarginLeft = 885;
 
+        $label = 'Profile views';
         $imageWidth = $minImageWidth + (8 * $countLength);
         $counterBackgroundWidth = $minCounterBackgroundWidth + (8 * $countLength);
         $counterTextLength = $minCounterTextLength + (80 * $countLength);
         $counterTextMarginLeft = $minCounterTextMarginLeft + (40 * $countLength);
 
         $counterImage = str_replace('%IMAGE_WIDTH%', $imageWidth, $counterImage);
+        $counterImage = str_replace('%LABEL%', $label, $counterImage);
         $counterImage = str_replace('%COUNT%', $count, $counterImage);
         $counterImage = str_replace('%COUNTER_BACKGROUND_WIDTH%', $counterBackgroundWidth, $counterImage);
         $counterImage = str_replace('%COUNTER_TEXT_LENGTH%', $counterTextLength, $counterImage);

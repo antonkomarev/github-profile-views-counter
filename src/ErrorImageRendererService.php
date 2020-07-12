@@ -44,12 +44,14 @@ final class ErrorImageRendererService
         $minCounterTextLength = 70;
         $minCounterTextMarginLeft = 480;
 
+        $label = 'Profile views';
         $imageWidth = $minImageWidth + (8 * $messageLength);
         $counterBackgroundWidth = $minCounterBackgroundWidth + (8 * $messageLength);
         $counterTextLength = $minCounterTextLength + (80 * $messageLength);
         $counterTextMarginLeft = $minCounterTextMarginLeft + (40 * $messageLength);
 
         $errorImage = str_replace('%IMAGE_WIDTH%', $imageWidth, $errorImage);
+        $errorImage = str_replace('%LABEL%', $label, $errorImage);
         $errorImage = str_replace('%MESSAGE%', $message, $errorImage);
         $errorImage = str_replace('%MESSAGE_BACKGROUND_WIDTH%', $counterBackgroundWidth, $errorImage);
         $errorImage = str_replace('%MESSAGE_TEXT_LENGTH%', $counterTextLength, $errorImage);
