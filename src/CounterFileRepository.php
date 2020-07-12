@@ -15,6 +15,8 @@ namespace Komarev\GitHubProfileViewsCounter;
 
 use Contracts\Komarev\GitHubProfileViewsCounter\CounterRepositoryInterface;
 use Contracts\Komarev\GitHubProfileViewsCounter\InvalidPathException;
+use DateTimeImmutable;
+use DateTimeZone;
 
 final class CounterFileRepository implements CounterRepositoryInterface
 {
@@ -33,18 +35,34 @@ final class CounterFileRepository implements CounterRepositoryInterface
         $this->storagePath = $storagePath;
     }
 
-    public function getCountByUsername(string $username): int
+    public function getViewsCountByUsername(string $username): int
     {
         $counterFilePath = $this->getCounterFilePath($username);
 
         return file_exists($counterFilePath) ? (int) file_get_contents($counterFilePath) : 0;
     }
 
-    public function incrementCountByUsername(string $username): void
+    public function addViewByUsername(string $username): void
+    {
+        file_put_contents(
+            $this->getViewsFilePath($username),
+            (new DateTimeImmutable('now', new DateTimeZone('UTC')))->format(DATE_RFC3339_EXTENDED) . PHP_EOL,
+            FILE_APPEND
+        );
+
+        $this->incrementViewsCount($username);
+    }
+
+    private function incrementViewsCount(string $username): void
     {
         $counterFilePath = $this->getCounterFilePath($username);
 
-        file_put_contents($counterFilePath, $this->getCountByUsername($username) + 1);
+        file_put_contents($counterFilePath, $this->getViewsCountByUsername($username) + 1);
+    }
+
+    private function getViewsFilePath(string $username): string
+    {
+        return $this->storagePath . '/' . $username . '-views';
     }
 
     private function getCounterFilePath(string $username): string

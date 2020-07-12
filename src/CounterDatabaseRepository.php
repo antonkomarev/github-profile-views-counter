@@ -25,7 +25,7 @@ final class CounterDatabaseRepository implements CounterRepositoryInterface
         $this->connection = $connection;
     }
 
-    public function getCountByUsername(string $username): int
+    public function getViewsCountByUsername(string $username): int
     {
         $statement = $this->connection->prepare(
             'SELECT COUNT(*)
@@ -38,7 +38,7 @@ final class CounterDatabaseRepository implements CounterRepositoryInterface
         return (int) $statement->fetchColumn(0);
     }
 
-    public function incrementCountByUsername(string $username): void
+    public function addViewByUsername(string $username): void
     {
         $statement = $this->connection->prepare(
             'INSERT INTO github_profile_views

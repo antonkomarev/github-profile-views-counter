@@ -48,8 +48,8 @@ try {
     }
 
     $counterRepository = new CounterFileRepository($storagePath);
-    $counterRepository->incrementCountByUsername($username);
-    $count = $counterRepository->getCountByUsername($username);
+    $counterRepository->addViewByUsername($username);
+    $count = $counterRepository->getViewsCountByUsername($username);
 
     $counterImageRenderer = new CounterImageRendererService($counterBadgePath);
     $counterImage = $counterImageRenderer->getImageWithCount($count);

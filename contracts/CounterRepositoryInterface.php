@@ -15,7 +15,7 @@ namespace Contracts\Komarev\GitHubProfileViewsCounter;
 
 interface CounterRepositoryInterface
 {
-    public function getCountByUsername(string $username): int;
+    public function getViewsCountByUsername(string $username): int;
 
-    public function incrementCountByUsername(string $username): void;
+    public function addViewByUsername(string $username): void;
 }
