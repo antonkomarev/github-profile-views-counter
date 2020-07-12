@@ -49,12 +49,6 @@ final class CounterFileRepository implements CounterRepositoryInterface
 
     private function getCounterFilePath(string $username): string
     {
-        if ($username === '') {
-            $counterFileName = 'views-count';
-        } else {
-            $counterFileName = $username . '-views-count';
-        }
-
-        return $this->storagePath . '/' . $counterFileName;
+        return $this->storagePath . '/' . $username . '-views-count';
     }
 }

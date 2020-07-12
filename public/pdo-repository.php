@@ -39,6 +39,10 @@ try {
     $username = $_GET['username'] ?? '';
     $username = trim($username);
 
+    if ($username === '') {
+        throw new Exception('Query property `username` is missing');
+    }
+
     $dsn = sprintf(
         '%s:host=%s;port=%d;dbname=%s',
         $_ENV['DB_DRIVER'], $_ENV['DB_HOST'], $_ENV['DB_PORT'], $_ENV['DB_NAME']

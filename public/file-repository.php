@@ -35,6 +35,10 @@ try {
     $username = $_GET['username'] ?? '';
     $username = trim($username);
 
+    if ($username === '') {
+        throw new Exception('Query property `username` is missing');
+    }
+
     $counterRepository = new CounterFileRepository($storagePath);
     $counterRepository->incrementCountByUsername($username);
     $count = $counterRepository->getCountByUsername($username);
