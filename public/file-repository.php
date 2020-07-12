@@ -51,6 +51,12 @@ try {
     $counterRepository->addViewByUsername($username);
     $count = $counterRepository->getViewsCountByUsername($username);
 
+    $style = $_GET['style'];
+    if ($style === 'pixel') {
+        echo '<svg/>';
+        exit;
+    }
+
     $counterImageRenderer = new CounterImageRendererService($counterBadgePath);
     $counterImage = $counterImageRenderer->getImageWithCount($count);
 
