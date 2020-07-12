@@ -19,10 +19,7 @@ final class CounterFileRepository implements CounterRepositoryInterface
 {
     private string $counterPath;
 
-    public function __construct(
-        string $storagePath,
-        string $counterFileName
-    )
+    public function __construct(string $storagePath, string $counterFileName)
     {
         $this->counterPath = $storagePath . '/' . $counterFileName;
     }

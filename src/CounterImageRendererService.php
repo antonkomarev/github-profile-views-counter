@@ -13,27 +13,23 @@ declare(strict_types=1);
 
 namespace Komarev\GitHubProfileViewsCounter;
 
+use InvalidArgumentException;
+
 final class CounterImageRendererService
 {
     private string $sourceImagePath;
 
-    private CounterFileRepository $counterRepository;
-
-    public function __construct(
-        string $resourcesPath,
-        string $sourceImageFileName,
-        CounterFileRepository $counterRepository
-    )
+    public function __construct(string $sourceImagePath)
     {
-        $this->sourceImagePath = $resourcesPath . '/' . $sourceImageFileName;
-        $this->counterRepository = $counterRepository;
+        if (!file_exists($sourceImagePath)) {
+            throw new InvalidArgumentException('Counter source image not found');
+        }
+
+        $this->sourceImagePath = $sourceImagePath;
     }
 
-    public function getImage(): string
+    public function getImageWithCount(int $count): string
     {
-        $this->counterRepository->incrementCount();
-        $count = $this->counterRepository->getCount();
-
         $counterImage = file_get_contents($this->sourceImagePath);
 
         return $this->replaceImagePlaceholders($counterImage, $count);

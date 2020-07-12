@@ -15,8 +15,8 @@ use Komarev\GitHubProfileViewsCounter\CounterImageRendererService;
 use Komarev\GitHubProfileViewsCounter\CounterFileRepository;
 
 $basePath = realpath(__DIR__ . '/..');
-$resourcesPath = $basePath . '/resources';
 $storagePath = $basePath . '/storage';
+$counterSourceImagePath = $basePath . '/resources/views-count.svg';
 
 require $basePath . '/vendor/autoload.php';
 
@@ -29,10 +29,16 @@ if ($username === '') {
     $counterFileName = $username . '-views-count';
 }
 
-$counterRepository = new CounterFileRepository($storagePath, $counterFileName);
-$counterImageRenderer = new CounterImageRendererService($resourcesPath, 'views-count.svg', $counterRepository);
+try {
+    $counterRepository = new CounterFileRepository($storagePath, $counterFileName);
+    $counterImageRenderer = new CounterImageRendererService($counterSourceImagePath);
 
-header('Content-Type: image/svg+xml');
-header('Cache-Control: max-age=0, no-cache, no-store, must-revalidate');
+    header('Content-Type: image/svg+xml');
+    header('Cache-Control: max-age=0, no-cache, no-store, must-revalidate');
 
-echo $counterImageRenderer->getImage();
+    $counterRepository->incrementCount();
+
+    echo $counterImageRenderer->getImageWithCount($counterRepository->getCount());
+} catch (Exception $exception) {
+    echo $exception->getMessage();
+}
