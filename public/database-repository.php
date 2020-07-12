@@ -41,7 +41,7 @@ try {
     $counterBadgePath = $basePath . '/resources/views-count-badge.svg';
     $errorBadgePath = $basePath . '/resources/error-badge.svg';
 
-    $style = $_GET['style'];
+    $style = $_GET['style'] ?? null;
     $username = $_GET['username'] ?? '';
     $username = trim($username);
 

@@ -31,13 +31,13 @@ try {
     $counterBadgePath = $basePath . '/resources/views-count-badge.svg';
     $errorBadgePath = $basePath . '/resources/error-badge.svg';
 
-    if ($_ENV['FILE_STORAGE_PATH'] === null) {
+    if (!isset($_ENV['FILE_STORAGE_PATH']) || $_ENV['FILE_STORAGE_PATH'] === null) {
         $storagePath = $basePath . '/storage';
     } else {
         $storagePath = $_ENV['FILE_STORAGE_PATH'];
     }
 
-    $style = $_GET['style'];
+    $style = $_GET['style'] ?? null;
     $username = $_GET['username'] ?? '';
     $username = trim($username);
 
