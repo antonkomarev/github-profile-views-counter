@@ -42,7 +42,7 @@ final class ErrorImageRendererService
         $minImageWidth = 98;
         $minCounterBackgroundWidth = 17;
         $minCounterTextLength = 70;
-        $minCounterTextMarginLeft = 480;
+        $minCounterTextMarginLeft = 885;
 
         $label = 'Profile views';
         $imageWidth = $minImageWidth + (8 * $messageLength);
