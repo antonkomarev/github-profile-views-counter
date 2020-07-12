@@ -41,6 +41,7 @@ try {
     $counterBadgePath = $basePath . '/resources/views-count-badge.svg';
     $errorBadgePath = $basePath . '/resources/error-badge.svg';
 
+    $style = $_GET['style'];
     $username = $_GET['username'] ?? '';
     $username = trim($username);
 
@@ -62,13 +63,13 @@ try {
 
     $counterRepository = new CounterDatabaseRepository($dbConnection);
     $counterRepository->addViewByUsername($username);
-    $count = $counterRepository->getViewsCountByUsername($username);
 
-    $style = $_GET['style'];
     if ($style === 'pixel') {
         echo '<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1"/>';
         exit;
     }
+
+    $count = $counterRepository->getViewsCountByUsername($username);
 
     $counterImageRenderer = new CounterImageRendererService($counterBadgePath);
     $counterImage = $counterImageRenderer->getImageWithCount($count);
