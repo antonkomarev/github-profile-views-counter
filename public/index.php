@@ -18,8 +18,7 @@ $basePath = realpath(__DIR__ . '/..');
 $resourcesPath = $basePath . '/resources';
 $storagePath = $basePath . '/storage';
 
-require_once $basePath . '/src/CounterImageRendererService.php';
-require_once $basePath . '/src/CounterFileRepository.php';
+require $basePath . '/vendor/autoload.php';
 
 $username = $_GET['username'] ?? '';
 $username = trim($username);

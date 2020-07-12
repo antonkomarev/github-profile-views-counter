@@ -13,7 +13,9 @@ declare(strict_types=1);
 
 namespace Komarev\GitHubProfileViewsCounter;
 
-final class CounterFileRepository
+use Contracts\Komarev\GitHubProfileViewsCounter\CounterRepositoryInterface;
+
+final class CounterFileRepository implements CounterRepositoryInterface
 {
     private string $counterPath;
 

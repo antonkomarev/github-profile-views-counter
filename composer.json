@@ -19,11 +19,13 @@
         }
     ],
     "require": {
+        "php": "^7.4"
     },
     "require-dev": {
     },
     "autoload": {
         "psr-4": {
+            "Contracts\\Komarev\\GitHubProfileViewsCounter\\": "contracts/",
             "Komarev\\GitHubProfileViewsCounter\\": "src/"
         }
     },
