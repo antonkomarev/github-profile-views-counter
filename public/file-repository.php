@@ -22,25 +22,30 @@ require $basePath . '/vendor/autoload.php';
 
 try {
     $dotEnv = Dotenv::createImmutable($basePath);
-    $dotEnv->load();
+    $dotEnv->safeLoad();
 
     $counterSourceImagePath = $basePath . '/resources/views-count.svg';
-    // Define path for counters storage
-    $storagePath = $basePath . '/storage';
+
+    if ($_ENV['FILE_STORAGE_PATH'] === null) {
+        $storagePath = $basePath . '/storage';
+    } else {
+        $storagePath = $_ENV['FILE_STORAGE_PATH'];
+    }
 
     $username = $_GET['username'] ?? '';
     $username = trim($username);
 
     $counterRepository = new CounterFileRepository($storagePath);
-    $counterImageRenderer = new CounterImageRendererService($counterSourceImagePath);
-
     $counterRepository->incrementCountByUsername($username);
     $count = $counterRepository->getCountByUsername($username);
+
+    $counterImageRenderer = new CounterImageRendererService($counterSourceImagePath);
+    $counterImage = $counterImageRenderer->getImageWithCount($count);
 
     header('Content-Type: image/svg+xml');
     header('Cache-Control: max-age=0, no-cache, no-store, must-revalidate');
 
-    echo $counterImageRenderer->getImageWithCount($count);
+    echo $counterImage;
 } catch (Exception $exception) {
     echo $exception->getMessage();
 }

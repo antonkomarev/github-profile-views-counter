@@ -12,6 +12,7 @@
 declare(strict_types=1);
 
 use Dotenv\Dotenv;
+use Dotenv\Exception\InvalidPathException;
 use Komarev\GitHubProfileViewsCounter\CounterImageRendererService;
 use Komarev\GitHubProfileViewsCounter\CounterPdoRepository;
 
@@ -48,15 +49,18 @@ try {
     $dbConnection = new PDO($dsn, $_ENV['DB_USER'], $_ENV['DB_PASSWORD'], $dbConnectionOptions);
 
     $counterRepository = new CounterPdoRepository($dbConnection);
-    $counterImageRenderer = new CounterImageRendererService($counterSourceImagePath);
-
     $counterRepository->incrementCountByUsername($username);
     $count = $counterRepository->getCountByUsername($username);
+
+    $counterImageRenderer = new CounterImageRendererService($counterSourceImagePath);
+    $counterImage = $counterImageRenderer->getImageWithCount($count);
 
     header('Content-Type: image/svg+xml');
     header('Cache-Control: max-age=0, no-cache, no-store, must-revalidate');
 
-    echo $counterImageRenderer->getImageWithCount($count);
+    echo $counterImage;
+} catch (InvalidPathException $exception) {
+    echo 'Application environment file is missing';
 } catch (Exception $exception) {
     echo $exception->getMessage();
 }
