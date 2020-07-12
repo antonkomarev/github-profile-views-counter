@@ -29,7 +29,7 @@ final class CounterDatabaseRepository implements CounterRepositoryInterface
     {
         $statement = $this->connection->prepare(
             'SELECT COUNT(*)
-               FROM page_views
+               FROM github_profile_views
               WHERE username = :username;'
         );
         $statement->bindParam('username', $username);
@@ -41,7 +41,7 @@ final class CounterDatabaseRepository implements CounterRepositoryInterface
     public function incrementCountByUsername(string $username): void
     {
         $statement = $this->connection->prepare(
-            'INSERT INTO page_views
+            'INSERT INTO github_profile_views
                          (username, created_at)
                   VALUES (:username, NOW());'
         );
