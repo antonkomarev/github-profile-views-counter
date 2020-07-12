@@ -12,33 +12,35 @@ Create your GitHub Profile repository. GitHub magic will happen as soon as you w
 
 My profile repository: [https://github.com/antonkomarev/antonkomarev](https://github.com/antonkomarev/antonkomarev)
 
-### Out of the box
+### Cloud application
 
 You need to add counter in README.md file in your profile repository via Markdown syntax:
 
 ```markdown
-![](https://komarev.com/ghpvc/?username=antonkomarev)
+![](https://komarev.com/ghpvc/?username=your-github-username)
 ```
 
 > Don't forget to replace example `username` with your own
 
 It is completely free. You can [help me cut server costs](https://paypal.me/antonkomarev) if you like this service. We don't track any personal information since GitHub proxies all images.  
 
-### Self-hosted
+### Self-hosted application
 
 Only `public/index.php` should be exposed.
-
-This URL will render SVG image with profile views counter and will increment it on each view of your profile.
-
-By default, this application using file-repository and counters stored in `storage/{$username}-views-count` files.
-
-Optionally you could switch to database-repository, then you will have to copy `.env.example` file to `.env` and fill in database configuration.
 
 You need to host this app on your server and display it via Markdown syntax:
 
 ```markdown
 ![](https://your.application.path/?username=your-github-username)
 ``` 
+
+This URL will render SVG image with profile views counter and will increment it on each view of your profile.
+
+#### Self-hosted application customization
+
+By default, this application using file repository and counters stored in `storage/{$username}-views-count` files.
+
+You can switch to database repository, then you will have to copy `.env.example` file to `.env` and fill in database configuration.
 
 ## License
 
