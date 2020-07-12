@@ -14,7 +14,7 @@ declare(strict_types=1);
 use Dotenv\Dotenv;
 use Dotenv\Exception\InvalidPathException;
 use Komarev\GitHubProfileViewsCounter\CounterImageRendererService;
-use Komarev\GitHubProfileViewsCounter\CounterPdoRepository;
+use Komarev\GitHubProfileViewsCounter\CounterDatabaseRepository;
 use Komarev\GitHubProfileViewsCounter\ErrorImageRendererService;
 
 $basePath = realpath(__DIR__ . '/..');
@@ -60,7 +60,7 @@ try {
     ];
     $dbConnection = new PDO($dsn, $_ENV['DB_USER'], $_ENV['DB_PASSWORD'], $dbConnectionOptions);
 
-    $counterRepository = new CounterPdoRepository($dbConnection);
+    $counterRepository = new CounterDatabaseRepository($dbConnection);
     $counterRepository->incrementCountByUsername($username);
     $count = $counterRepository->getCountByUsername($username);
 
