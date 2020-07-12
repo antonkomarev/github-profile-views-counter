@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Komarev\GitHubProfileViewsCounter;
 
 use Contracts\Komarev\GitHubProfileViewsCounter\CounterRepositoryInterface;
-use InvalidArgumentException;
+use Contracts\Komarev\GitHubProfileViewsCounter\InvalidPathException;
 
 final class CounterFileRepository implements CounterRepositoryInterface
 {
@@ -23,11 +23,11 @@ final class CounterFileRepository implements CounterRepositoryInterface
     public function __construct(string $storagePath)
     {
         if (!is_dir($storagePath)) {
-            throw new InvalidArgumentException('Counter storage is not a directory');
+            throw new InvalidPathException('Counter storage is not a directory');
         }
 
         if (!is_writable($storagePath)) {
-            throw new InvalidArgumentException('Counter storage is not writable');
+            throw new InvalidPathException('Counter storage is not writable');
         }
 
         $this->storagePath = $storagePath;
@@ -49,12 +49,6 @@ final class CounterFileRepository implements CounterRepositoryInterface
 
     private function getCounterFilePath(string $username): string
     {
-        if ($username === '') {
-            $counterFileName = 'views-count';
-        } else {
-            $counterFileName = $username . '-views-count';
-        }
-
-        return $this->storagePath . '/' . $counterFileName;
+        return $this->storagePath . '/' . $username . '-views-count';
     }
 }

@@ -11,5 +11,10 @@
 
 declare(strict_types=1);
 
-require 'file-repository.php';
-//require 'pdo-repository.php';
+namespace Contracts\Komarev\GitHubProfileViewsCounter;
+
+use Throwable;
+
+interface GitHubProfileViewsCounterThrowableInterface extends Throwable
+{
+}

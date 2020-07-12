@@ -13,7 +13,7 @@ Here is my profile repository: [https://github.com/antonkomarev/antonkomarev](ht
 You need to host this app on your server and display it via Markdown syntax:
 
 ```markdown
-![](https://komarev.com/github-profile-views-counter)
+![](https://komarev.com/github-profile-views-counter/?username=antonkomarev)
 ```
 
 Only `public/index.php` should be exposed.
