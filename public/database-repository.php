@@ -15,7 +15,6 @@ use Dotenv\Dotenv;
 use Dotenv\Exception\InvalidPathException;
 use Komarev\GitHubProfileViewsCounter\BadgeImageRendererService;
 use Komarev\GitHubProfileViewsCounter\CounterDatabaseRepository;
-use Komarev\GitHubProfileViewsCounter\ErrorImageRendererService;
 
 $basePath = realpath(__DIR__ . '/..');
 
