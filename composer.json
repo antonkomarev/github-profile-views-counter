@@ -18,17 +18,20 @@
             "role": "Developer"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "Contracts\\Komarev\\GitHubProfileViewsCounter\\": "contracts/",
+            "Komarev\\GitHubProfileViewsCounter\\": "src/"
+        }
+    },
     "require": {
         "php": "^7.4",
         "vlucas/phpdotenv": "^5.0"
     },
     "require-dev": {
     },
-    "autoload": {
-        "psr-4": {
-            "Contracts\\Komarev\\GitHubProfileViewsCounter\\": "contracts/",
-            "Komarev\\GitHubProfileViewsCounter\\": "src/"
-        }
+    "suggest": {
+        "ext-pdo": "*"
     },
     "config": {
         "sort-packages": true
