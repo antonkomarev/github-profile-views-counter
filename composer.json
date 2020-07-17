@@ -1,5 +1,6 @@
 {
     "name": "komarev/github-profile-views-counter",
+    "description": "GitHub Profile views counter. Free cloud & self-hosted solution.",
     "type": "project",
     "license": "MIT",
     "keywords": [
