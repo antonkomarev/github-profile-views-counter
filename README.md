@@ -1,6 +1,8 @@
 # GitHub Profile Views Counter
 
-It counts how many times your profile has been viewed.
+![GitHub Profile Views Counter](https://user-images.githubusercontent.com/1849174/87816378-dfce8480-c86f-11ea-9ac0-2f7907e1d9d4.png)
+
+It counts how many times your GitHub profile has been viewed and displays them in your profile, for free.
 
 ![Profile View Counter Example](https://user-images.githubusercontent.com/1849174/87232647-40ba1080-c3c9-11ea-9d50-c6778edcd8c7.png)
 
@@ -45,5 +47,6 @@ You can switch to database repository, then you will have to copy `.env.example`
 ## License
 
 - `GitHub Profile Views Counter` application is open-sourced software licensed under the [MIT license](LICENSE) by [Anton Komarev].
+- `Eye Octicon` hero image licensed under MIT license by [GitHub, Inc](https://github.com).
 
 [Anton Komarev]: https://komarev.com
