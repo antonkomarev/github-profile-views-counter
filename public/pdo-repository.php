@@ -14,7 +14,7 @@ declare(strict_types=1);
 use Dotenv\Dotenv;
 use Dotenv\Exception\InvalidPathException;
 use Komarev\GitHubProfileViewsCounter\BadgeImageRendererService;
-use Komarev\GitHubProfileViewsCounter\CounterDatabaseRepository;
+use Komarev\GitHubProfileViewsCounter\CounterPdoRepository;
 use Komarev\GitHubProfileViewsCounter\Username;
 
 $basePath = realpath(__DIR__ . '/..');
@@ -62,7 +62,7 @@ try {
     ];
     $dbConnection = new PDO($dsn, $_ENV['DB_USER'], $_ENV['DB_PASSWORD'], $dbConnectionOptions);
 
-    $counterRepository = new CounterDatabaseRepository($dbConnection);
+    $counterRepository = new CounterPdoRepository($dbConnection);
     $counterRepository->addViewByUsername($username);
 
     if ($style === 'pixel') {

@@ -16,7 +16,7 @@ namespace Komarev\GitHubProfileViewsCounter;
 use Contracts\Komarev\GitHubProfileViewsCounter\CounterRepositoryInterface;
 use PDO;
 
-final class CounterDatabaseRepository implements
+final class CounterPdoRepository implements
     CounterRepositoryInterface
 {
     private PDO $connection;
