@@ -33,10 +33,9 @@ final class CounterDatabaseRepository implements
     {
         $statement = $this->connection->prepare(
             'SELECT COUNT(*)
-               FROM :tableName
+               FROM ' . $this->tableName . '
               WHERE username = :username;'
         );
-        $statement->bindParam('tableName', $this->tableName);
         $statement->bindParam('username', $username);
         $statement->execute();
 
@@ -46,11 +45,10 @@ final class CounterDatabaseRepository implements
     public function addViewByUsername(Username $username): void
     {
         $statement = $this->connection->prepare(
-            'INSERT INTO :tableName
+            'INSERT INTO ' . $this->tableName . '
                          (username, created_at)
                   VALUES (:username, NOW());'
         );
-        $statement->bindParam('tableName', $this->tableName);
         $statement->bindParam('username', $username);
         $statement->execute();
     }
