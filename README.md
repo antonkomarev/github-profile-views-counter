@@ -4,7 +4,7 @@
 
 It counts how many times your GitHub profile has been viewed and displays them in your profile, for free.
 
-![Profile View Counter Example](https://user-images.githubusercontent.com/1849174/87232647-40ba1080-c3c9-11ea-9d50-c6778edcd8c7.png)
+![antonkomarev-profile-views-counter](https://user-images.githubusercontent.com/1849174/87852750-78ffa880-c90d-11ea-98d7-eba7b10a09cd.png)
 
 ## Usage
 
