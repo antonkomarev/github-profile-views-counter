@@ -14,7 +14,7 @@ Cloud solution launched as 100% free experience. You can [help me cut server cos
 
 GitHub magic will happen as soon as you will create a new repository named equally to your username.
 
-![](https://user-images.githubusercontent.com/1849174/87251639-cbf0e000-c475-11ea-9c69-7600c78ebe33.png)
+![secret-profile-repository](https://user-images.githubusercontent.com/1849174/87852702-f24acb80-c90c-11ea-8247-90ae7de0954d.png)
 
 My profile repository: [https://github.com/antonkomarev/antonkomarev](https://github.com/antonkomarev/antonkomarev)
 
