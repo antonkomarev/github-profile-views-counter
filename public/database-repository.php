@@ -15,6 +15,7 @@ use Dotenv\Dotenv;
 use Dotenv\Exception\InvalidPathException;
 use Komarev\GitHubProfileViewsCounter\BadgeImageRendererService;
 use Komarev\GitHubProfileViewsCounter\CounterDatabaseRepository;
+use Komarev\GitHubProfileViewsCounter\Username;
 
 $basePath = realpath(__DIR__ . '/..');
 
@@ -49,6 +50,8 @@ try {
         echo $badgeImageRenderer->renderBadgeWithError($badgeImagePath, 'Invalid query parameter: username');
         exit;
     }
+
+    $username = new Username($username);
 
     $dsn = sprintf(
         '%s:host=%s;port=%d;dbname=%s',

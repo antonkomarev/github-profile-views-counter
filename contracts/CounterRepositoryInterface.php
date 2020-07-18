@@ -13,9 +13,11 @@ declare(strict_types=1);
 
 namespace Contracts\Komarev\GitHubProfileViewsCounter;
 
+use Komarev\GitHubProfileViewsCounter\Username;
+
 interface CounterRepositoryInterface
 {
-    public function getViewsCountByUsername(string $username): int;
+    public function getViewsCountByUsername(Username $username): int;
 
-    public function addViewByUsername(string $username): void;
+    public function addViewByUsername(Username $username): void;
 }

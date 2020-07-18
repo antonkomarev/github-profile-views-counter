@@ -18,7 +18,8 @@ use Contracts\Komarev\GitHubProfileViewsCounter\InvalidPathException;
 use DateTimeImmutable;
 use DateTimeZone;
 
-final class CounterFileRepository implements CounterRepositoryInterface
+final class CounterFileRepository implements
+    CounterRepositoryInterface
 {
     private string $storagePath;
 
@@ -35,38 +36,43 @@ final class CounterFileRepository implements CounterRepositoryInterface
         $this->storagePath = $storagePath;
     }
 
-    public function getViewsCountByUsername(string $username): int
+    public function getViewsCountByUsername(Username $username): int
     {
         $counterFilePath = $this->getCounterFilePath($username);
 
         return file_exists($counterFilePath) ? (int) file_get_contents($counterFilePath) : 0;
     }
 
-    public function addViewByUsername(string $username): void
+    public function addViewByUsername(Username $username): void
     {
         file_put_contents(
             $this->getViewsFilePath($username),
-            (new DateTimeImmutable('now', new DateTimeZone('UTC')))->format(DATE_RFC3339_EXTENDED) . PHP_EOL,
+            $this->getCurrentFormattedDateTime() . PHP_EOL,
             FILE_APPEND
         );
 
         $this->incrementViewsCount($username);
     }
 
-    private function incrementViewsCount(string $username): void
+    private function incrementViewsCount(Username $username): void
     {
         $counterFilePath = $this->getCounterFilePath($username);
 
         file_put_contents($counterFilePath, $this->getViewsCountByUsername($username) + 1);
     }
 
-    private function getViewsFilePath(string $username): string
+    private function getViewsFilePath(Username $username): string
     {
         return $this->storagePath . '/' . $username . '-views';
     }
 
-    private function getCounterFilePath(string $username): string
+    private function getCounterFilePath(Username $username): string
     {
         return $this->storagePath . '/' . $username . '-views-count';
+    }
+
+    private function getCurrentFormattedDateTime(): string
+    {
+        return (new DateTimeImmutable('now', new DateTimeZone('UTC')))->format(DATE_RFC3339_EXTENDED);
     }
 }

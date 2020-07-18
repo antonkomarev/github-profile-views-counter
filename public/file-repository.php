@@ -14,6 +14,7 @@ declare(strict_types=1);
 use Dotenv\Dotenv;
 use Komarev\GitHubProfileViewsCounter\BadgeImageRendererService;
 use Komarev\GitHubProfileViewsCounter\CounterFileRepository;
+use Komarev\GitHubProfileViewsCounter\Username;
 
 $basePath = realpath(__DIR__ . '/..');
 
@@ -45,6 +46,8 @@ try {
         echo $badgeImageRenderer->renderBadgeWithError($badgeImagePath, 'Invalid query parameter: username');
         exit;
     }
+
+    $username = new Username($username);
 
     $counterRepository = new CounterFileRepository($storagePath);
     $counterRepository->addViewByUsername($username);

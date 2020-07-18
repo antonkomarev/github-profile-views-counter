@@ -27,7 +27,8 @@
     },
     "require": {
         "php": "^7.4",
-        "vlucas/phpdotenv": "^5.0"
+        "vlucas/phpdotenv": "^5.0",
+        "webmozart/assert": "^1.9"
     },
     "require-dev": {
     },

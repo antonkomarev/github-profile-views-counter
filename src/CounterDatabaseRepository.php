@@ -16,20 +16,24 @@ namespace Komarev\GitHubProfileViewsCounter;
 use Contracts\Komarev\GitHubProfileViewsCounter\CounterRepositoryInterface;
 use PDO;
 
-final class CounterDatabaseRepository implements CounterRepositoryInterface
+final class CounterDatabaseRepository implements
+    CounterRepositoryInterface
 {
     private PDO $connection;
 
-    public function __construct(PDO $connection)
+    private string $tableName;
+
+    public function __construct(PDO $connection, string $tableName = null)
     {
         $this->connection = $connection;
+        $this->tableName = $tableName !== null ? $tableName : 'github_profile_views';
     }
 
-    public function getViewsCountByUsername(string $username): int
+    public function getViewsCountByUsername(Username $username): int
     {
         $statement = $this->connection->prepare(
             'SELECT COUNT(*)
-               FROM github_profile_views
+               FROM ' . $this->tableName . '
               WHERE username = :username;'
         );
         $statement->bindParam('username', $username);
@@ -38,10 +42,10 @@ final class CounterDatabaseRepository implements CounterRepositoryInterface
         return (int) $statement->fetchColumn(0);
     }
 
-    public function addViewByUsername(string $username): void
+    public function addViewByUsername(Username $username): void
     {
         $statement = $this->connection->prepare(
-            'INSERT INTO github_profile_views
+            'INSERT INTO ' . $this->tableName . '
                          (username, created_at)
                   VALUES (:username, NOW());'
         );
