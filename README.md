@@ -16,7 +16,7 @@ GitHub magic will happen as soon as you will create a new repository named equal
 
 ![secret-profile-repository](https://user-images.githubusercontent.com/1849174/87852702-f24acb80-c90c-11ea-8247-90ae7de0954d.png)
 
-My profile repository: [https://github.com/antonkomarev/antonkomarev](https://github.com/antonkomarev/antonkomarev)
+Live demo in [my profile repository].
 
 ### Add counter to GitHub profile
 
@@ -38,4 +38,5 @@ You need to add counter in README.md file in your profile repository via Markdow
 
 [Anton Komarev]: https://komarev.com
 [GitHub, Inc]: https://github.com
+[my profile repository]: https://github.com/antonkomarev/antonkomarev
 [help me cut server costs]: https://paypal.me/antonkomarev
