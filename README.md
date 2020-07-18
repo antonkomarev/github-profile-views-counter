@@ -29,7 +29,7 @@ You need to add counter in README.md file in your profile repository via Markdow
 > **NOTE**: Don't forget to replace example `username` parameter with real value.
 
 > GitHub will proxy this URL via its _camo_ service, so it will look like [https://camo.githubusercontent.com/a9aa69b588bef281647d53091b4faa01ac126121/68747470733a2f2f6b6f6d617265762e636f6d2f67687076632f3f757365726e616d653d616e746f6e6b6f6d6172657626](https://camo.githubusercontent.com/a9aa69b588bef281647d53091b4faa01ac126121/68747470733a2f2f6b6f6d617265762e636f6d2f67687076632f3f757365726e616d653d616e746f6e6b6f6d6172657626).
-> That means I can't track any personal information like User Agent or IP address. Only views counters & timestamp of views are stored.  
+> That means I can't track any personal information like visitors User Agent or IP address. Only views timestamp and total count of views are stored.  
 
 ## License
 
