@@ -16,7 +16,7 @@ GitHub magic will happen as soon as you will create a new repository named equal
 
 ![secret-profile-repository](https://user-images.githubusercontent.com/1849174/87852702-f24acb80-c90c-11ea-8247-90ae7de0954d.png)
 
-[Live demo] in [my profile repository].
+[Live demo] of [my profile repository].
 
 ### Add counter to GitHub profile
 
