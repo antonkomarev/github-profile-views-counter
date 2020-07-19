@@ -10,6 +10,15 @@ It counts how many times your GitHub profile has been viewed and displays them i
 
 Cloud solution launched as 100% free experience. You can [help me cut server costs] if you like this service.
 
+This counter designed to be an analytical instrument for you, but not for people who are visiting your profile.
+You could see profile views dynamics as result of publishing new project, blog post or taking part on conference.
+
+If you want to see big numbers in your profile - deploy self-hosted solution,
+and there will be no need to write a bot and hammering our server bandwidth.
+
+Everybody knows that any counters could be faked. A billion of views doesn't make you very popular person,
+it makes you a person with a billion number in counter.
+
 ### Create GitHub profile repository
 
 GitHub magic will happen as soon as you will create a new repository named equally to your username.
