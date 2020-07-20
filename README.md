@@ -40,7 +40,7 @@ You need to add counter in README.md file in your profile repository via Markdow
 
 #### Color
 
-You could use any valid HEX color or pick from a predefined set of named colors (`blue` is the default).
+You can use any valid HEX color or pick from a predefined set of named colors (`blue` is the default).
 
 | color | demo |
 | ----- | ---- |
@@ -85,7 +85,7 @@ The following styles are available (`flat` is the default).
 
 #### Label
 
-You could overwrite default `Profile views` text with your own label.
+You can overwrite default `Profile views` text with your own label.
 
 ![](https://img.shields.io/static/v1?label=PROFILE+VIEWS&message=1234567890&color=007ec6)
 
