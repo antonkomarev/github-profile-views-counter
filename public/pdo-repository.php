@@ -42,6 +42,8 @@ try {
 
     $httpUserAgent = $_SERVER['HTTP_USER_AGENT'];
 
+    $badgeLabel = $_GET['label'] ?? 'Profile views';
+    $badgeMessageBackgroundFill = $_GET['color'] ?? 'blue';
     $badgeStyle = $_GET['style'] ?? 'flat';
     if (!in_array($badgeStyle, ['flat', 'flat-square', 'plastic'])) {
         $badgeStyle = 'flat';
@@ -50,7 +52,7 @@ try {
     $username = trim($username);
 
     if ($username === '') {
-        echo $badgeImageRenderer->renderBadgeWithError($badgeStyle, 'Invalid query parameter: username');
+        echo $badgeImageRenderer->renderBadgeWithError($badgeLabel, 'Invalid query parameter: username', $badgeStyle);
         exit;
     }
 
@@ -78,12 +80,12 @@ try {
 
     $count = $counterRepository->getViewsCountByUsername($username);
 
-    echo $badgeImageRenderer->renderBadgeWithCount($badgeStyle, $count);
+    echo $badgeImageRenderer->renderBadgeWithCount($badgeLabel, $count, $badgeMessageBackgroundFill, $badgeStyle);
     exit;
 } catch (InvalidPathException $exception) {
-    echo $badgeImageRenderer->renderBadgeWithError($badgeStyle, 'Application environment file is missing');
+    echo $badgeImageRenderer->renderBadgeWithError($badgeLabel, 'Application environment file is missing', $badgeStyle);
     exit;
 } catch (Exception $exception) {
-    echo $badgeImageRenderer->renderBadgeWithError($badgeStyle, $exception->getMessage());
+    echo $badgeImageRenderer->renderBadgeWithError($badgeLabel, $exception->getMessage(), $badgeStyle);
     exit;
 }

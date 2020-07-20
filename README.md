@@ -38,9 +38,40 @@ You need to add counter in README.md file in your profile repository via Markdow
 
 ### Customization
 
+#### Color
+
+You can use any valid HEX color or pick from a predefined set of named colors (`blue` is the default).
+
+| color | demo |
+| ----- | ---- |
+| `brightgreen` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=44cc11) |
+| `green` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=97ca00) |
+| `yellow` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=dfb317) |
+| `yellowgreen` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=a4a61d) |
+| `orange` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=fe7d37) |
+| `red` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=e05d44) |
+| `blue` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=007ec6) |
+| `grey` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=555555) |
+| `lightgray` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=9f9f9f) |
+| `ff69b4` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=ff69b4) |
+
+**Named color**
+
+```markdown
+![](https://komarev.com/ghpvc/?username=your-github-username&color=green)
+```
+
+**Hex color**
+
+```markdown
+![](https://komarev.com/ghpvc/?username=your-github-username&color=dc143c)
+```
+
+> **NOTE**: HEX colors should be used without `#` symbol prefix.
+
 #### Styles
 
-The following styles are available (`flat` is the default):
+The following styles are available (`flat` is the default).
 
 | style | demo |
 | ----- | ---- |
@@ -52,7 +83,17 @@ The following styles are available (`flat` is the default):
 ![](https://komarev.com/ghpvc/?username=your-github-username&style=flat-square)
 ```
 
-For example
+#### Label
+
+You can overwrite default `Profile views` text with your own label.
+
+![](https://img.shields.io/static/v1?label=PROFILE+VIEWS&message=1234567890&color=007ec6)
+
+```markdown
+![](https://komarev.com/ghpvc/?username=your-github-username&label=PROFILE+VIEWS)
+```
+
+> **NOTE**: Replace whitespace with `+` character in multi-word labels.
 
 ## Is it safe to place tracking image? 
 

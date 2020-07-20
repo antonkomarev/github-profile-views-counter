@@ -24,32 +24,34 @@ final class BadgeImageRendererService
 
     public function __construct()
     {
-        $this->poser = new Poser([new SvgRender(), new SvgFlatRender(), new SvgFlatSquareRender()]);
+        $this->poser = new Poser([
+            new SvgRender(),
+            new SvgFlatRender(),
+            new SvgFlatSquareRender(),
+        ]);
     }
 
-    public function renderBadgeWithCount($badgeStyle, int $count): string
+    public function renderBadgeWithCount(string $label, int $count, string $messageBackgroundFill, string $badgeStyle): string
     {
         $message = (string) $count;
 
-        $messageBackgroundFill = '007ec6';
-
-        return $this->renderBadge($badgeStyle, $message, $messageBackgroundFill);
+        return $this->renderBadge($label, $message, $messageBackgroundFill, $badgeStyle);
     }
 
-    public function renderBadgeWithError($badgeStyle, string $message): string
+    public function renderBadgeWithError(string $label, string $message, string $badgeStyle): string
     {
-        $messageBackgroundFill = 'e05d44';
+        $messageBackgroundFill = 'red';
 
-        return $this->renderBadge($badgeStyle, $message, $messageBackgroundFill);
-    }
-
-    private function renderBadge($badgeStyle, string $message, string $messageBackgroundFill): string
-    {
-        return (string) $this->poser->generate('Profile views', $message, $messageBackgroundFill, $badgeStyle);
+        return $this->renderBadge($label, $message, $messageBackgroundFill, $badgeStyle);
     }
 
     public function renderPixel(): string
     {
         return '<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1"/>';
+    }
+
+    private function renderBadge(string $label, string $message, string $messageBackgroundFill, string $badgeStyle): string
+    {
+        return (string) $this->poser->generate($label, $message, $messageBackgroundFill, $badgeStyle);
     }
 }
