@@ -36,9 +36,9 @@ You need to add counter in README.md file in your profile repository via Markdow
 
 > **NOTE**: Don't forget to replace example `username` parameter with real value.
 
-### Make it personal
+## Make it personal
 
-#### Color
+### Color
 
 You can use any valid HEX color or pick from a predefined set of named colors (`blue` is the default).
 
@@ -69,7 +69,7 @@ You can use any valid HEX color or pick from a predefined set of named colors (`
 
 > **NOTE**: HEX colors should be used without `#` symbol prefix.
 
-#### Styles
+### Styles
 
 The following styles are available (`flat` is the default).
 
@@ -83,7 +83,7 @@ The following styles are available (`flat` is the default).
 ![](https://komarev.com/ghpvc/?username=your-github-username&style=flat-square)
 ```
 
-#### Label
+### Label
 
 You can overwrite default `Profile views` text with your own label.
 
