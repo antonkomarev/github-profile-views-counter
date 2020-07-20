@@ -40,8 +40,6 @@ try {
         'DB_NAME',
     ]);
 
-    $badgeImagePath = $basePath . '/resources/badge.svg';
-
     $httpUserAgent = $_SERVER['HTTP_USER_AGENT'];
 
     $style = $_GET['style'] ?? null;
@@ -49,7 +47,7 @@ try {
     $username = trim($username);
 
     if ($username === '') {
-        echo $badgeImageRenderer->renderBadgeWithError($badgeImagePath, 'Invalid query parameter: username');
+        echo $badgeImageRenderer->renderBadgeWithError('Invalid query parameter: username');
         exit;
     }
 
@@ -71,18 +69,18 @@ try {
     }
 
     if ($style === 'pixel') {
-        echo '<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1"/>';
+        echo $badgeImageRenderer->renderPixel();
         exit;
     }
 
     $count = $counterRepository->getViewsCountByUsername($username);
 
-    echo $badgeImageRenderer->renderBadgeWithCount($badgeImagePath, $count);
+    echo $badgeImageRenderer->renderBadgeWithCount($count);
     exit;
 } catch (InvalidPathException $exception) {
-    echo $badgeImageRenderer->renderBadgeWithError($badgeImagePath, 'Application environment file is missing');
+    echo $badgeImageRenderer->renderBadgeWithError('Application environment file is missing');
     exit;
 } catch (Exception $exception) {
-    echo $badgeImageRenderer->renderBadgeWithError($badgeImagePath, $exception->getMessage());
+    echo $badgeImageRenderer->renderBadgeWithError($exception->getMessage());
     exit;
 }
