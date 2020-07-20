@@ -56,7 +56,7 @@ For example
 
 ## Is it safe to place tracking image? 
 
-GitHub passes all images URLs through their proxy _camo_ service. URLs are look like [https://camo.githubusercontent.com/a9aa69b588bef281647d53091b4faa01ac126121/68747470733a2f2f6b6f6d617265762e636f6d2f67687076632f3f757365726e616d653d616e746f6e6b6f6d6172657626](https://camo.githubusercontent.com/a9aa69b588bef281647d53091b4faa01ac126121/68747470733a2f2f6b6f6d617265762e636f6d2f67687076632f3f757365726e616d653d616e746f6e6b6f6d6172657626).
+GitHub passes all images URLs through their proxy [_camo_](https://github.com/atmos/camo) service.
 
 This means that only GitHub can track personal information, such as visitors User Agent or IP address.
 Third party cloud service stores only views timestamps and total count of views.
