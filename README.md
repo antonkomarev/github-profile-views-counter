@@ -1,5 +1,7 @@
 # GitHub Profile Views Counter
 
+<a href="https://discord.gg/geJF43E"><img src="https://img.shields.io/static/v1?logo=discord&label=&message=Discord&color=202225&style=flat-square"></a>
+
 ![GitHub Profile Views Counter](https://user-images.githubusercontent.com/1849174/87816378-dfce8480-c86f-11ea-9ac0-2f7907e1d9d4.png)
 
 It counts how many times your GitHub profile has been viewed and displays them in your profile, for free.
