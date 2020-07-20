@@ -1,8 +1,13 @@
 # GitHub Profile Views Counter
 
+![GitHub Profile Views Counter](https://user-images.githubusercontent.com/1849174/87816378-dfce8480-c86f-11ea-9ac0-2f7907e1d9d4.png)
+
 <a href="https://discord.gg/geJF43E"><img src="https://img.shields.io/static/v1?logo=discord&label=&message=Discord&color=36393f&style=flat-square"></a>
 
-![GitHub Profile Views Counter](https://user-images.githubusercontent.com/1849174/87816378-dfce8480-c86f-11ea-9ac0-2f7907e1d9d4.png)
+## Introduction
+
+This counter designed to be an analytical instrument for you, but not for people who are visiting your profile.
+It could be used to see profile views dynamics as result of publishing new project, blog post or taking part on conference.
 
 It counts how many times your GitHub profile has been viewed and displays them in your profile, for free.
 
@@ -11,9 +16,6 @@ It counts how many times your GitHub profile has been viewed and displays them i
 ## Usage
 
 Cloud solution launched as 100% free experience. You can [help me cut server costs] if you like this service.
-
-This counter designed to be an analytical instrument for you, but not for people who are visiting your profile.
-It could be used to see profile views dynamics as result of publishing new project, blog post or taking part on conference.
 
 If you want to see big numbers in your profile, deploy a standalone solution, and you will not need to write a bot
 and spam our server. Everybody knows that any counters could be faked.
