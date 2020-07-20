@@ -20,8 +20,8 @@ It counts how many times your GitHub profile has been viewed and displays them i
 
 Cloud solution launched as 100% free experience. You can [help me cut server costs] if you like this service.
 
-If you want to see big numbers in your profile, deploy a standalone solution, and you will not need to write a bot
-and spam our server. Everybody knows that any counters could be faked.
+If you want to see big numbers in your profile, deploy a standalone solution to draw any views count you want
+without spamming our server. Everybody knows that any counters could be faked.
 
 > A billion fake profile views doesn't make you a very popular person, it makes you a person with a billion number in the counter.
 
