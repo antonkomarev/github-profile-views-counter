@@ -16,7 +16,7 @@ It could be used to see profile views dynamics as result of publishing new proje
 If you want to see big numbers in your profile, deploy a standalone solution, and you will not need to write a bot
 and spam our server. Everybody knows that any counters could be faked.
 
-> A billion fake views doesn't make you a very popular person, it makes you a person with a billion number in the counter.
+> A billion fake profile views doesn't make you a very popular person, it makes you a person with a billion number in the counter.
 
 ### Create GitHub profile repository
 
