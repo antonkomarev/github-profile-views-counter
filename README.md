@@ -36,6 +36,22 @@ You need to add counter in README.md file in your profile repository via Markdow
 
 > **NOTE**: Don't forget to replace example `username` parameter with real value.
 
+### Customization
+
+#### Styles
+
+The following styles are available (`flat` is the default):
+
+- `&style=flat` ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=007ec6&style=flat)
+- `&style=flat-square` ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=007ec6&style=flat-square)
+- `&style=plastic` ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=007ec6&style=plastic)
+
+```markdown
+![](https://komarev.com/ghpvc/?username=your-github-username&style=flat-square)
+```
+
+For example
+
 ## Is it safe to place tracking image? 
 
 GitHub passes all images URLs through their proxy _camo_ service. URLs are look like [https://camo.githubusercontent.com/a9aa69b588bef281647d53091b4faa01ac126121/68747470733a2f2f6b6f6d617265762e636f6d2f67687076632f3f757365726e616d653d616e746f6e6b6f6d6172657626](https://camo.githubusercontent.com/a9aa69b588bef281647d53091b4faa01ac126121/68747470733a2f2f6b6f6d617265762e636f6d2f67687076632f3f757365726e616d653d616e746f6e6b6f6d6172657626).

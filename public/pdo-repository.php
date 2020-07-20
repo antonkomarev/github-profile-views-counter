@@ -42,9 +42,9 @@ try {
 
     $httpUserAgent = $_SERVER['HTTP_USER_AGENT'];
 
-    $badgeStyle = $_GET['style'] ?? 'flat-square';
-    if (!in_array($badgeStyle, ['flat-square', 'flat', 'plastic'])) {
-        $badgeStyle = 'flat-square';
+    $badgeStyle = $_GET['style'] ?? 'flat';
+    if (!in_array($badgeStyle, ['flat', 'flat-square', 'plastic'])) {
+        $badgeStyle = 'flat';
     }
     $username = $_GET['username'] ?? '';
     $username = trim($username);

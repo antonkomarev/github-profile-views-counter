@@ -38,9 +38,9 @@ try {
         $storagePath = $_ENV['FILE_STORAGE_PATH'];
     }
 
-    $badgeStyle = $_GET['style'] ?? 'flat-square';
-    if (!in_array($badgeStyle, ['flat-square', 'flat', 'plastic'])) {
-        $badgeStyle = 'flat-square';
+    $badgeStyle = $_GET['style'] ?? 'flat';
+    if (!in_array($badgeStyle, ['flat', 'flat-square', 'plastic'])) {
+        $badgeStyle = 'flat';
     }
     $username = $_GET['username'] ?? '';
     $username = trim($username);
