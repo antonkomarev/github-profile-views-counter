@@ -39,7 +39,7 @@ try {
     }
 
     $badgeLabel = $_GET['label'] ?? 'Profile views';
-    $badgeMessageBackgroundFill = $_GET['color'] ?? '007ec6';
+    $badgeMessageBackgroundFill = $_GET['color'] ?? 'blue';
     $badgeStyle = $_GET['style'] ?? 'flat';
     if (!in_array($badgeStyle, ['flat', 'flat-square', 'plastic'])) {
         $badgeStyle = 'flat';

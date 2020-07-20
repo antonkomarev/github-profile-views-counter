@@ -40,7 +40,7 @@ final class BadgeImageRendererService
 
     public function renderBadgeWithError(string $label, string $message, string $badgeStyle): string
     {
-        $messageBackgroundFill = 'e05d44';
+        $messageBackgroundFill = 'red';
 
         return $this->renderBadge($label, $message, $messageBackgroundFill, $badgeStyle);
     }
