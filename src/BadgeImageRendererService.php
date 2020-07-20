@@ -45,7 +45,7 @@ final class BadgeImageRendererService
 
     private function renderBadge($badgeStyle, string $message, string $messageBackgroundFill): string
     {
-        return (string) $this->poser->generate('Page views', $message, $messageBackgroundFill, $badgeStyle);
+        return (string) $this->poser->generate('Profile views', $message, $messageBackgroundFill, $badgeStyle);
     }
 
     public function renderPixel(): string
