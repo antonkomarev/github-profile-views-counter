@@ -38,6 +38,18 @@ You need to add counter in README.md file in your profile repository via Markdow
 
 ### Customization
 
+#### Label
+
+You could overwrite default `Profile views` text with your own label.
+
+![](https://img.shields.io/static/v1?label=PROFILE+VIEWS&message=1234567890&color=007ec6)
+
+```markdown
+![](https://komarev.com/ghpvc/?username=your-github-username&label=PROFILE+VIEWS)
+```
+
+> **NOTE**: Replace whitespace with `+` character.
+
 #### Styles
 
 The following styles are available (`flat` is the default):
