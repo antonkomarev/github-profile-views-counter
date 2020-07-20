@@ -95,12 +95,18 @@ You can overwrite default `Profile views` text with your own label.
 
 > **NOTE**: Replace whitespace with `+` character in multi-word labels.
 
-## Is it safe to use tracking image? 
+## FAQ
+
+### Isn't that a security breach? 
 
 GitHub passes all images URLs through their [GitHub Camo proxy service](https://github.blog/2010-11-13-sidejack-prevention-phase-3-ssl-proxied-assets/).
 
 This means that only GitHub can track personal information, such as visitors User Agent or IP address.
 Third party cloud service stores only views timestamps and total count of views.
+
+### Are you making money on it?
+
+No. Only spending them. You can [help me cut server costs] if you want it to keep running & receive new features.
 
 ## License
 
