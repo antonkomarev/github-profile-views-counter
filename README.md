@@ -105,7 +105,7 @@ Third party cloud service stores only views timestamps and total count of views.
 
 ### Are you making money on it?
 
-No. Only spending them. You can [help me cut server costs] if you want it to keep running & receive new features.
+No. Only spending them. You can [become a sponsor] if you want it to keep running & receive new features.
 
 ## License
 
@@ -117,3 +117,4 @@ No. Only spending them. You can [help me cut server costs] if you want it to kee
 [Live demo]: https://github.com/antonkomarev
 [my profile repository]: https://github.com/antonkomarev/antonkomarev
 [help me cut server costs]: https://paypal.me/antonkomarev
+[become a sponsor]: https://paypal.me/antonkomarev
