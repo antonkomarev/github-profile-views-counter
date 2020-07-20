@@ -38,12 +38,15 @@ try {
         $storagePath = $_ENV['FILE_STORAGE_PATH'];
     }
 
-    $style = $_GET['style'] ?? null;
+    $badgeStyle = $_GET['style'] ?? 'flat-square';
+    if (!in_array($badgeStyle, ['flat-square', 'flat', 'plastic'])) {
+        $badgeStyle = 'flat-square';
+    }
     $username = $_GET['username'] ?? '';
     $username = trim($username);
 
     if ($username === '') {
-        echo $badgeImageRenderer->renderBadgeWithError('Invalid query parameter: username');
+        echo $badgeImageRenderer->renderBadgeWithError($badgeStyle, 'Invalid query parameter: username');
         exit;
     }
 
@@ -55,16 +58,16 @@ try {
         $counterRepository->addViewByUsername($username);
     }
 
-    if ($style === 'pixel') {
+    if ($badgeStyle === 'pixel') {
         echo $badgeImageRenderer->renderPixel();
         exit;
     }
 
     $count = $counterRepository->getViewsCountByUsername($username);
 
-    echo $badgeImageRenderer->renderBadgeWithCount($count);
+    echo $badgeImageRenderer->renderBadgeWithCount($badgeStyle, $count);
     exit;
 } catch (Exception $exception) {
-    echo $badgeImageRenderer->renderBadgeWithError($exception->getMessage());
+    echo $badgeImageRenderer->renderBadgeWithError($badgeStyle, $exception->getMessage());
     exit;
 }

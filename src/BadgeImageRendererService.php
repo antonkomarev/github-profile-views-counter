@@ -14,6 +14,8 @@ declare(strict_types=1);
 namespace Komarev\GitHubProfileViewsCounter;
 
 use PUGX\Poser\Poser;
+use PUGX\Poser\Render\SvgFlatRender;
+use PUGX\Poser\Render\SvgFlatSquareRender;
 use PUGX\Poser\Render\SvgRender;
 
 final class BadgeImageRendererService
@@ -22,28 +24,28 @@ final class BadgeImageRendererService
 
     public function __construct()
     {
-        $this->poser = new Poser([new SvgRender()]);
+        $this->poser = new Poser([new SvgRender(), new SvgFlatRender(), new SvgFlatSquareRender()]);
     }
 
-    public function renderBadgeWithCount(int $count): string
+    public function renderBadgeWithCount($badgeStyle, int $count): string
     {
         $message = (string) $count;
 
         $messageBackgroundFill = '007ec6';
 
-        return $this->renderBadge($message, $messageBackgroundFill);
+        return $this->renderBadge($badgeStyle, $message, $messageBackgroundFill);
     }
 
-    public function renderBadgeWithError(string $message): string
+    public function renderBadgeWithError($badgeStyle, string $message): string
     {
         $messageBackgroundFill = 'e05d44';
 
-        return $this->renderBadge($message, $messageBackgroundFill);
+        return $this->renderBadge($badgeStyle, $message, $messageBackgroundFill);
     }
 
-    private function renderBadge(string $message, string $messageBackgroundFill): string
+    private function renderBadge($badgeStyle, string $message, string $messageBackgroundFill): string
     {
-        return (string) $this->poser->generate('Page views', $message, $messageBackgroundFill, 'plastic');
+        return (string) $this->poser->generate('Page views', $message, $messageBackgroundFill, $badgeStyle);
     }
 
     public function renderPixel(): string
