@@ -32,6 +32,8 @@ try {
 
     $badgeImagePath = $basePath . '/resources/badge.svg';
 
+    $httpUserAgent = $_SERVER['HTTP_USER_AGENT'];
+
     if (!isset($_ENV['FILE_STORAGE_PATH']) || $_ENV['FILE_STORAGE_PATH'] === null) {
         $storagePath = $basePath . '/storage';
     } else {
@@ -50,7 +52,10 @@ try {
     $username = new Username($username);
 
     $counterRepository = new CounterFileRepository($storagePath);
-    $counterRepository->addViewByUsername($username);
+
+    if (strpos($httpUserAgent, 'github-camo') === 0) {
+        $counterRepository->addViewByUsername($username);
+    }
 
     if ($style === 'pixel') {
         echo '<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1"/>';
