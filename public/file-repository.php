@@ -30,8 +30,6 @@ try {
     $dotEnv = Dotenv::createImmutable($basePath);
     $dotEnv->safeLoad();
 
-    $badgeImagePath = $basePath . '/resources/badge.svg';
-
     $httpUserAgent = $_SERVER['HTTP_USER_AGENT'];
 
     if (!isset($_ENV['FILE_STORAGE_PATH']) || $_ENV['FILE_STORAGE_PATH'] === null) {
@@ -40,12 +38,15 @@ try {
         $storagePath = $_ENV['FILE_STORAGE_PATH'];
     }
 
-    $style = $_GET['style'] ?? null;
+    $badgeStyle = $_GET['style'] ?? 'flat';
+    if (!in_array($badgeStyle, ['flat', 'flat-square', 'plastic'])) {
+        $badgeStyle = 'flat';
+    }
     $username = $_GET['username'] ?? '';
     $username = trim($username);
 
     if ($username === '') {
-        echo $badgeImageRenderer->renderBadgeWithError($badgeImagePath, 'Invalid query parameter: username');
+        echo $badgeImageRenderer->renderBadgeWithError($badgeStyle, 'Invalid query parameter: username');
         exit;
     }
 
@@ -57,16 +58,16 @@ try {
         $counterRepository->addViewByUsername($username);
     }
 
-    if ($style === 'pixel') {
-        echo '<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1"/>';
+    if ($badgeStyle === 'pixel') {
+        echo $badgeImageRenderer->renderPixel();
         exit;
     }
 
     $count = $counterRepository->getViewsCountByUsername($username);
 
-    echo $badgeImageRenderer->renderBadgeWithCount($badgeImagePath, $count);
+    echo $badgeImageRenderer->renderBadgeWithCount($badgeStyle, $count);
     exit;
 } catch (Exception $exception) {
-    echo $badgeImageRenderer->renderBadgeWithError($badgeImagePath, $exception->getMessage());
+    echo $badgeImageRenderer->renderBadgeWithError($badgeStyle, $exception->getMessage());
     exit;
 }
