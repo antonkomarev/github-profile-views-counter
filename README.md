@@ -95,7 +95,7 @@ You can overwrite default `Profile views` text with your own label.
 
 > **NOTE**: Replace whitespace with `+` character in multi-word labels.
 
-## Is it safe to place tracking image? 
+## Is it safe to use tracking image? 
 
 GitHub passes all images URLs through their [GitHub Camo proxy service](https://github.blog/2010-11-13-sidejack-prevention-phase-3-ssl-proxied-assets/).
 
