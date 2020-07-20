@@ -42,6 +42,8 @@ try {
 
     $badgeImagePath = $basePath . '/resources/badge.svg';
 
+    $httpUserAgent = $_SERVER['HTTP_USER_AGENT'];
+
     $style = $_GET['style'] ?? null;
     $username = $_GET['username'] ?? '';
     $username = trim($username);
@@ -63,7 +65,10 @@ try {
     $dbConnection = new PDO($dsn, $_ENV['DB_USER'], $_ENV['DB_PASSWORD'], $dbConnectionOptions);
 
     $counterRepository = new CounterPdoRepository($dbConnection);
-    $counterRepository->addViewByUsername($username);
+
+    if (strpos($httpUserAgent, 'github-camo') === 0) {
+        $counterRepository->addViewByUsername($username);
+    }
 
     if ($style === 'pixel') {
         echo '<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1"/>';
