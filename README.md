@@ -36,7 +36,7 @@ You need to add counter in README.md file in your profile repository via Markdow
 
 > **NOTE**: Don't forget to replace example `username` parameter with real value.
 
-### Customization
+### Make it personal
 
 #### Color
 
