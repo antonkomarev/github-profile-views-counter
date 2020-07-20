@@ -42,9 +42,11 @@ You need to add counter in README.md file in your profile repository via Markdow
 
 The following styles are available (`flat` is the default):
 
-- `&style=flat` ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=007ec6&style=flat)
-- `&style=flat-square` ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=007ec6&style=flat-square)
-- `&style=plastic` ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=007ec6&style=plastic)
+| style | demo |
+| ----- | ---- |
+| `flat` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=007ec6&style=flat) |
+| `flat-square` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=007ec6&style=flat-square) |
+| `plastic` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=007ec6&style=plastic) |
 
 ```markdown
 ![](https://komarev.com/ghpvc/?username=your-github-username&style=flat-square)
