@@ -14,7 +14,7 @@ It could be used to see profile views dynamics as result of development activity
 
 It counts how many times your GitHub profile has been viewed and displays them in your profile, for free.
 
-![antonkomarev-profile-views-counter](https://user-images.githubusercontent.com/1849174/87852750-78ffa880-c90d-11ea-98d7-eba7b10a09cd.png)
+![antonkomarev-profile-views-counter](https://user-images.githubusercontent.com/1849174/88077155-9ccc2400-cb83-11ea-8d9c-d18a8b1dc297.png)
 
 ## Usage
 
