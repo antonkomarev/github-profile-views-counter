@@ -33,7 +33,7 @@ final class BadgeImageRendererService
 
     public function renderBadgeWithCount(string $label, int $count, string $messageBackgroundFill, string $badgeStyle): string
     {
-        $message = (string) $count;
+        $message = number_format($count);
 
         return $this->renderBadge($label, $message, $messageBackgroundFill, $badgeStyle);
     }
