@@ -52,8 +52,10 @@ try {
     $username = trim($username);
 
     if ($username === '') {
-        echo $badgeImageRenderer->renderBadgeWithError($badgeLabel, 'Invalid query parameter: username', $badgeStyle);
+        header('Location: https://github.com/antonkomarev/github-profile-views-counter');
         exit;
+//        echo $badgeImageRenderer->renderBadgeWithError($badgeLabel, 'Invalid query parameter: username', $badgeStyle);
+//        exit;
     }
 
     $username = new Username($username);
