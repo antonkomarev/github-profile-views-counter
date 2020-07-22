@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of PHP GitHub Profile.
+ * This file is part of GitHub Profile Views Counter.
  *
  * (c) Anton Komarev <anton@komarev.com>
  *
