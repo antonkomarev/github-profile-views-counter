@@ -4,32 +4,35 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "268e668398fa52181cf35d8920a04ab9",
+    "content-hash": "737cdc30cb40061c9293cbe8a281a0b7",
     "packages": [
         {
             "name": "badges/poser",
-            "version": "v1.4.1",
+            "version": "v2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/badges/poser.git",
-                "reference": "4281890cbd58e0ea29c6550c4a4aaa16a15b3ce0"
+                "reference": "72bcde7e3d7ae6886ba23c05626aad74cd933007"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/badges/poser/zipball/4281890cbd58e0ea29c6550c4a4aaa16a15b3ce0",
-                "reference": "4281890cbd58e0ea29c6550c4a4aaa16a15b3ce0",
+                "url": "https://api.github.com/repos/badges/poser/zipball/72bcde7e3d7ae6886ba23c05626aad74cd933007",
+                "reference": "72bcde7e3d7ae6886ba23c05626aad74cd933007",
                 "shasum": ""
             },
             "require": {
                 "ext-gd": "*",
-                "php": ">=5.3",
-                "symfony/console": "~2.0|~3.0|~4.0"
+                "ext-simplexml": "*",
+                "php": ">=7.4",
+                "symfony/console": "^4.0|^5.0"
             },
             "require-dev": {
-                "behat/behat": "^3.4",
-                "coduo/phpspec-data-provider-extension": "^1.0",
-                "friendsofphp/php-cs-fixer": "@stable",
-                "phpspec/phpspec": "^2.5"
+                "behat/behat": "^3.7",
+                "friends-of-phpspec/phpspec-code-coverage": "^4.3",
+                "friendsofphp/php-cs-fixer": "^2.16",
+                "moave/phpspec-data-provider-extension": "dev-master",
+                "phpspec/phpspec": "^6.1",
+                "vimeo/psalm": "^3.12"
             },
             "bin": [
                 "bin/poser"
@@ -37,7 +40,7 @@
             "type": "lib",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4.x-dev"
+                    "dev-master": "2.x-dev"
                 }
             },
             "autoload": {
@@ -71,7 +74,7 @@
                 "packagist",
                 "pin"
             ],
-            "time": "2020-06-11T16:17:31+00:00"
+            "time": "2020-07-29T10:39:06+00:00"
         },
         {
             "name": "graham-campbell/result-type",

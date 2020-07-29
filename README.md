@@ -51,15 +51,16 @@ You can use any valid HEX color or pick from a predefined set of named colors (`
 
 | color | demo |
 | ----- | ---- |
-| `brightgreen` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=44cc11) |
-| `green` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=97ca00) |
-| `yellow` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=dfb317) |
-| `yellowgreen` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=a4a61d) |
-| `orange` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=fe7d37) |
-| `red` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=e05d44) |
-| `blue` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=007ec6) |
-| `grey` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=555555) |
-| `lightgray` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=9f9f9f) |
+| `brightgreen` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=brightgreen) |
+| `green` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=green) |
+| `yellow` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=yellow) |
+| `yellowgreen` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=yellowgreen) |
+| `orange` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=orange) |
+| `red` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=red) |
+| `blue` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=blue) |
+| `grey` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=grey) |
+| `lightgrey` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=lightgrey) |
+| `blueviolet` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=blueviolet) |
 | `ff69b4` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=ff69b4) |
 
 **Named color**

@@ -27,7 +27,7 @@
     },
     "require": {
         "php": "^7.4",
-        "badges/poser": "^1.4",
+        "badges/poser": "^2.0",
         "vlucas/phpdotenv": "^5.0",
         "webmozart/assert": "^1.9"
     },

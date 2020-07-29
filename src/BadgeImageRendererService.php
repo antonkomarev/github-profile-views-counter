@@ -13,10 +13,11 @@ declare(strict_types=1);
 
 namespace Komarev\GitHubProfileViewsCounter;
 
+use PUGX\Poser\Badge;
 use PUGX\Poser\Poser;
 use PUGX\Poser\Render\SvgFlatRender;
 use PUGX\Poser\Render\SvgFlatSquareRender;
-use PUGX\Poser\Render\SvgRender;
+use PUGX\Poser\Render\SvgPlasticRender;
 
 final class BadgeImageRendererService
 {
@@ -25,7 +26,7 @@ final class BadgeImageRendererService
     public function __construct()
     {
         $this->poser = new Poser([
-            new SvgRender(),
+            new SvgPlasticRender(),
             new SvgFlatRender(),
             new SvgFlatSquareRender(),
         ]);
@@ -52,6 +53,6 @@ final class BadgeImageRendererService
 
     private function renderBadge(string $label, string $message, string $messageBackgroundFill, string $badgeStyle): string
     {
-        return (string) $this->poser->generate($label, $message, $messageBackgroundFill, $badgeStyle);
+        return (string) $this->poser->generate($label, $message, $messageBackgroundFill, $badgeStyle, Badge::DEFAULT_FORMAT);
     }
 }
