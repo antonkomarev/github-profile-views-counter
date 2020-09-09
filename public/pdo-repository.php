@@ -40,7 +40,7 @@ try {
         'DB_NAME',
     ]);
 
-    $httpUserAgent = $_SERVER['HTTP_USER_AGENT'];
+    $httpUserAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
 
     $badgeLabel = $_GET['label'] ?? 'Profile views';
     $badgeMessageBackgroundFill = $_GET['color'] ?? 'blue';

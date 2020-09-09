@@ -30,7 +30,7 @@ try {
     $dotEnv = Dotenv::createImmutable($basePath);
     $dotEnv->safeLoad();
 
-    $httpUserAgent = $_SERVER['HTTP_USER_AGENT'];
+    $httpUserAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
 
     if (!isset($_ENV['FILE_STORAGE_PATH']) || $_ENV['FILE_STORAGE_PATH'] === null) {
         $storagePath = $basePath . '/storage';
