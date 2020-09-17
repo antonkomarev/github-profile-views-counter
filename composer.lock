@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "badges/poser",
-            "version": "v2.0.1",
+            "version": "v2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/badges/poser.git",
-                "reference": "ded7ae4b6d108275d97e130f37f28b280427e641"
+                "reference": "04006c8f74458903d31a59d95153618d16f9df41"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/badges/poser/zipball/ded7ae4b6d108275d97e130f37f28b280427e641",
-                "reference": "ded7ae4b6d108275d97e130f37f28b280427e641",
+                "url": "https://api.github.com/repos/badges/poser/zipball/04006c8f74458903d31a59d95153618d16f9df41",
+                "reference": "04006c8f74458903d31a59d95153618d16f9df41",
                 "shasum": ""
             },
             "require": {
@@ -74,7 +74,7 @@
                 "packagist",
                 "pin"
             ],
-            "time": "2020-07-29T15:54:20+00:00"
+            "time": "2020-09-17T10:21:51+00:00"
         },
         {
             "name": "graham-campbell/result-type",
