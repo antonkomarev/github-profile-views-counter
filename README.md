@@ -41,7 +41,7 @@ You need to add counter in README.md file in your profile repository via Markdow
 ![](https://komarev.com/ghpvc/?username=your-github-username)
 ```
 
-> **NOTE**: Don't forget to replace example `username` parameter with real value.
+> **NOTE**: Don't forget to replace example `your-github-username` parameter with real value.
 
 ## Make it personal
 
