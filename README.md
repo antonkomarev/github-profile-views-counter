@@ -18,7 +18,7 @@ It counts how many times your GitHub profile has been viewed and displays them i
 
 ## Usage
 
-Cloud solution launched as 100% free experience. You can [help me cut server costs] if you like this service.
+Cloud solution launched as 100% free experience. [Help me cut server costs] if you like this service.
 
 If you want to see big numbers in your profile, deploy a standalone solution to draw any views count you want
 without spamming our server. Everybody knows that any counters could be faked.
@@ -105,15 +105,17 @@ You can overwrite default `Profile views` text with your own label.
 
 ## FAQ
 
-### Isn't that a security breach? 
+### Why does the counter increase every time the page is reloaded?
 
-GitHub passes all images URLs through their [GitHub Camo proxy service](https://github.blog/2010-11-13-sidejack-prevention-phase-3-ssl-proxied-assets/).
-This means that only GitHub can track personal information, such as visitors User Agent or IP address.
-Third party cloud service stores only views timestamps and total count of views.
+This is counter of profile views (page hits), not a counter of unique visitors.
+There is no way to get the username, browser user agent or IP address of the visitor because
+GitHub proxies all image URLs through the [GitHub Camo service].
+In other words, we can only increment the counter for each request from the GitHub proxy server,
+we don't know who initiated it.
 
 ### Are you making money on it?
 
-No. Only spending them. You can [become a sponsor] if you want it to keep running & receive new features.
+No. Only spending them. [Become a sponsor] if you want it to keep running & receive new features.
 
 ## License
 
@@ -124,5 +126,6 @@ No. Only spending them. You can [become a sponsor] if you want it to keep runnin
 [GitHub, Inc]: https://github.com
 [Live demo]: https://github.com/antonkomarev
 [my profile repository]: https://github.com/antonkomarev/antonkomarev
-[help me cut server costs]: https://paypal.me/antonkomarev
-[become a sponsor]: https://paypal.me/antonkomarev
+[Help me cut server costs]: https://paypal.me/antonkomarev
+[Become a sponsor]: https://paypal.me/antonkomarev
+[GitHub Camo service]: https://github.blog/2010-11-13-sidejack-prevention-phase-3-ssl-proxied-assets/
