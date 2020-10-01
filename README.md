@@ -115,7 +115,7 @@ we don't know who initiated it.
 
 ### Are you making money on it?
 
-No. Only spending them. [Become a sponsor] if you want it to keep running & receive new features.
+No. Only spending it. [Become a sponsor] if you want it to keep running & receive new features.
 
 ## License
 
