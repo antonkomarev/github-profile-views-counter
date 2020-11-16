@@ -11,7 +11,7 @@
 
 Use [Ÿ HŸPE] service as the more robust and feature rich solution.
 
-GHPCV project is proof of concept. This counter designed to be an analytical instrument for you, but not for people who are visiting your profile.
+GHPVС project is proof of concept. This counter designed to be an analytical instrument for you, but not for people who are visiting your profile.
 It could be used to see profile views dynamics as result of development activity, blogging or taking part in a conference.
 
 It counts how many times your GitHub profile has been viewed and displays them in your profile, for free.
