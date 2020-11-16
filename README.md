@@ -9,7 +9,9 @@
 
 ## Introduction
 
-This counter designed to be an analytical instrument for you, but not for people who are visiting your profile.
+Use [Ÿ HŸPE] service as the more robust and feature rich solution.
+
+GHPCV project is proof of concept. This counter designed to be an analytical instrument for you, but not for people who are visiting your profile.
 It could be used to see profile views dynamics as result of development activity, blogging or taking part in a conference.
 
 It counts how many times your GitHub profile has been viewed and displays them in your profile, for free.
@@ -105,6 +107,11 @@ You can overwrite default `Profile views` text with your own label.
 
 ## FAQ
 
+### Can I see detailed statistics?
+
+This project provides minimalistic counter only. Use [Ÿ HŸPE] service instead.
+It provides profile views statistics, followers count and will have much more features in the future.
+
 ### Why does the counter increase every time the page is reloaded?
 
 This is counter of profile views (page hits), not a counter of unique visitors.
@@ -116,6 +123,10 @@ we don't know who initiated it.
 ### Are you making money on it?
 
 No. Only spending it. [Become a sponsor] if you want it to keep running & receive new features.
+
+## Alternatives
+
+- [Ÿ HŸPE] enhanced GitHub professional account statistics & analytics
 
 ## License
 
@@ -129,3 +140,4 @@ No. Only spending it. [Become a sponsor] if you want it to keep running & receiv
 [Help me cut server costs]: https://paypal.me/antonkomarev
 [Become a sponsor]: https://paypal.me/antonkomarev
 [GitHub Camo service]: https://github.blog/2010-11-13-sidejack-prevention-phase-3-ssl-proxied-assets/
+[Ÿ HŸPE]: https://yhype.halp.im
