@@ -140,4 +140,4 @@ No. Only spending it. [Become a sponsor] if you want it to keep running & receiv
 [Help me cut server costs]: https://paypal.me/antonkomarev
 [Become a sponsor]: https://paypal.me/antonkomarev
 [GitHub Camo service]: https://github.blog/2010-11-13-sidejack-prevention-phase-3-ssl-proxied-assets/
-[Ÿ HŸPE]: https://yhype.halp.im
+[Ÿ HŸPE]: https://yhype.me
