@@ -109,8 +109,11 @@ You can overwrite default `Profile views` text with your own label.
 
 ### Can I see detailed statistics?
 
-This project provides minimalistic counter only. Use [Ÿ HŸPE] service instead.
-It provides profile views statistics, followers count and will have much more features in the future.
+This project provides minimalistic counter only. Use [Ÿ HŸPE] service if you want to get detailed info about:
+- user profile views
+- user followers history
+- repository stars history
+- repository traffic for longer than 14 days
 
 ### Why does the counter increase every time the page is reloaded?
 
