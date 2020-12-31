@@ -115,6 +115,10 @@ This project provides minimalistic counter only. Use [Ÿ HŸPE] service if you w
 - repository stars history
 - repository traffic for longer than 14 days
 
+### How to reset counter?
+
+To reset counter you should login to the [Ÿ HŸPE] service and then you will be able to reset counter on the https://yhype.me/ghpvc page.
+
 ### Why does the counter increase every time the page is reloaded?
 
 This is counter of profile views (page hits), not a counter of unique visitors.
