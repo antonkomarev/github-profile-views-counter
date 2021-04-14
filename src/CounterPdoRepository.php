@@ -47,6 +47,7 @@ final class CounterPdoRepository implements
     public function addViewByUsername(Username $username): void
     {
         if(!isset($_SESSION['hasVisited'])){
+            //  || $_SESSION['hasVisited'] === false Under certain rules this can be added.
             $statement = $this->connection->prepare(
                 'INSERT INTO ' . $this->tableName . '
                              (username, created_at)
