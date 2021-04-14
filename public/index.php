@@ -11,5 +11,7 @@
 
 declare(strict_types=1);
 
+if(!isset($_SESSION)) session_start();
+
 require 'file-repository.php';
 //require 'pdo-repository.php';

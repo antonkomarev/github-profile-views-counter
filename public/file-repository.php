@@ -11,6 +11,8 @@
 
 declare(strict_types=1);
 
+if(!isset($_SESSION)) session_start();
+
 use Dotenv\Dotenv;
 use Komarev\GitHubProfileViewsCounter\BadgeImageRendererService;
 use Komarev\GitHubProfileViewsCounter\CounterFileRepository;
