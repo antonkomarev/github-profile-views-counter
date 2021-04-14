@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Komarev\GitHubProfileViewsCounter;
 
+if(!isset($_SESSION)) session_start();
+
 use Contracts\Komarev\GitHubProfileViewsCounter\CounterRepositoryInterface;
 use Contracts\Komarev\GitHubProfileViewsCounter\InvalidPathException;
 use DateTimeImmutable;

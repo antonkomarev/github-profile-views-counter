@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Komarev\GitHubProfileViewsCounter;
 
+if(!isset($_SESSION)) session_start();
+
 use Contracts\Komarev\GitHubProfileViewsCounter\CounterRepositoryInterface;
 use PDO;
 
@@ -44,12 +46,15 @@ final class CounterPdoRepository implements
 
     public function addViewByUsername(Username $username): void
     {
-        $statement = $this->connection->prepare(
-            'INSERT INTO ' . $this->tableName . '
-                         (username, created_at)
-                  VALUES (:username, NOW());'
-        );
-        $statement->bindParam('username', $username);
-        $statement->execute();
+        if(!isset($_SESSION['hasVisited'])){
+            $statement = $this->connection->prepare(
+                'INSERT INTO ' . $this->tableName . '
+                             (username, created_at)
+                      VALUES (:username, NOW());'
+            );
+            $statement->bindParam('username', $username);
+            $statement->execute();
+            $_SESSION['hasVisited'] = true;
+        } 
     }
 }

@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 namespace Komarev\GitHubProfileViewsCounter;
 
+if(!isset($_SESSION)) session_start();
+
 use PUGX\Poser\Badge;
 use PUGX\Poser\Poser;
 use PUGX\Poser\Render\SvgFlatRender;
