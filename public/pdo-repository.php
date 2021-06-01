@@ -42,6 +42,10 @@ try {
 
     $httpUserAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
 
+    array_walk_recursive($_GET, function (&$input) {
+        $input = htmlspecialchars($input, ENT_NOQUOTES, 'UTF-8', false);
+    });
+
     $badgeLabel = $_GET['label'] ?? 'Profile views';
     $badgeMessageBackgroundFill = $_GET['color'] ?? 'blue';
     $badgeStyle = $_GET['style'] ?? 'flat';
