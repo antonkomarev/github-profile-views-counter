@@ -140,6 +140,10 @@ No. Only spending it. [Become a sponsor] if you want it to keep running & receiv
 - `GitHub Profile Views Counter` application is open-sourced software licensed under the [MIT license](LICENSE) by [Anton Komarev].
 - `Eye Octicon` hero image licensed under MIT license by [GitHub, Inc].
 
+## 🌟 Stargazers over time
+
+[![Stargazers over time](https://chart.yhype.me/github/repository-star/v1/MDEwOlJlcG9zaXRvcnkyNzg5Mjk4Njc=.svg)](https://yhype.me?ref=github-antonkomarev-github-profile-views-counter)
+
 [Anton Komarev]: https://komarev.com
 [GitHub, Inc]: https://github.com
 [Live demo]: https://github.com/antonkomarev
