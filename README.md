@@ -142,7 +142,7 @@ No. Only spending it. [Become a sponsor] if you want it to keep running & receiv
 
 ## 🌟 Stargazers over time
 
-[![Stargazers over time](https://chart.yhype.me/github/repository-star/v1/MDEwOlJlcG9zaXRvcnkyNzg5Mjk4Njc=.svg)](https://yhype.me?ref=github-repository-star-cumulative-antonkomarev-github-profile-views-counter)
+[![Stargazers over time](https://chart.yhype.me/github/repository-star/v1/MDEwOlJlcG9zaXRvcnkyNzg5Mjk4Njc=.svg)](https://yhype.me?utm_source=github&utm_medium=repository-stars-cumulative&utm_content=antonkomarev-github-profile-views-counter)
 
 [Anton Komarev]: https://komarev.com
 [GitHub, Inc]: https://github.com
