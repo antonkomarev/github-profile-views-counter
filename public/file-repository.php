@@ -32,7 +32,7 @@ try {
 
     $httpUserAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
 
-    if (!isset($_ENV['FILE_STORAGE_PATH']) || $_ENV['FILE_STORAGE_PATH'] === null) {
+    if (!isset($_ENV['FILE_STORAGE_PATH']) || $_ENV['FILE_STORAGE_PATH'] === '') {
         $storagePath = $basePath . '/storage';
     } else {
         $storagePath = $_ENV['FILE_STORAGE_PATH'];

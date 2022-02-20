@@ -1,0 +1,35 @@
+version: "3.9"
+services:
+  app:
+    container_name: ${PROJECT_NAME}-app
+    image: ghpvc-app
+    build:
+      context: ./
+      dockerfile: ./.docker/php/Dockerfile
+    restart: unless-stopped
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - ./.docker/php/www.conf:/usr/local/etc/php-fpm.d/www.conf:ro
+    networks:
+      - ghpvc
+
+  nginx:
+    container_name: ${PROJECT_NAME}-nginx
+    image: nginx:1.21-alpine
+    restart: unless-stopped
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+    environment:
+      VIRTUAL_HOST: app.ghpvc.localhost
+    volumes:
+      - ./.docker/nginx/app.ghpvc.80.conf:/etc/nginx/conf.d/app.ghpvc.80.conf:ro
+      - ./public:/app/public:ro
+    networks:
+      - ghpvc
+
+networks:
+  ghpvc:
+    driver: bridge
