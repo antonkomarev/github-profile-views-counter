@@ -24,6 +24,3 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # The FPM production container
 # ----------------------
 FROM dev
-
-COPY ./.docker/php/www.conf /usr/local/etc/php-fpm.d/www.conf
-COPY . /app

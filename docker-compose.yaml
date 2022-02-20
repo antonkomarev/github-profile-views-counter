@@ -25,7 +25,7 @@ services:
     environment:
       VIRTUAL_HOST: app.ghpvc.localhost
     volumes:
-      - ./.docker/nginx/ghpvc.conf:/etc/nginx/ghpvc.conf:ro
+      - ./.docker/nginx/app.ghpvc.80.conf:/etc/nginx/conf.d/app.ghpvc.80.conf:ro
       - ./public:/app/public:ro
     networks:
       - ghpvc
