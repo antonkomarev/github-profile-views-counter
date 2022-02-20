@@ -21,7 +21,7 @@ $basePath = realpath(__DIR__ . '/..');
 // Register The Auto Loader
 require $basePath . '/vendor/autoload.php';
 
-header('Content-Type: image/svg+xml');
+//header('Content-Type: image/svg+xml');
 header('Cache-Control: max-age=0, no-cache, no-store, must-revalidate');
 
 $badgeImageRenderer = new BadgeImageRendererService();
@@ -32,7 +32,7 @@ try {
 
     $httpUserAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
 
-    if (!isset($_ENV['FILE_STORAGE_PATH']) || $_ENV['FILE_STORAGE_PATH'] === null) {
+    if (!isset($_ENV['FILE_STORAGE_PATH']) || $_ENV['FILE_STORAGE_PATH'] === '') {
         $storagePath = $basePath . '/storage';
     } else {
         $storagePath = $_ENV['FILE_STORAGE_PATH'];
