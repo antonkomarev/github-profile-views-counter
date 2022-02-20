@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-namespace Contracts\Komarev\GitHubProfileViewsCounter;
+namespace Contracts\Komarev\GitHubProfileViewsCounter\Exceptions;
 
 use Throwable;
 

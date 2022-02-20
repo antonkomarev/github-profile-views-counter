@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace Komarev\GitHubProfileViewsCounter;
 
 use Contracts\Komarev\GitHubProfileViewsCounter\CounterRepositoryInterface;
-use Contracts\Komarev\GitHubProfileViewsCounter\InvalidPathException;
+use Contracts\Komarev\GitHubProfileViewsCounter\Exceptions\InvalidPathException;
 use DateTimeImmutable;
 use DateTimeZone;
 
