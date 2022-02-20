@@ -4,7 +4,11 @@
 FROM php:7.4-fpm-alpine AS dev
 
 RUN apk add \
+    freetype-dev \
     libpng-dev
+
+# Configure php extensions
+RUN docker-php-ext-configure gd --with-freetype
 
 # Install php extensions
 RUN docker-php-ext-install \
