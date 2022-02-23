@@ -17,6 +17,7 @@ use PUGX\Poser\Badge;
 use PUGX\Poser\Poser;
 use PUGX\Poser\Render\SvgFlatRender;
 use PUGX\Poser\Render\SvgFlatSquareRender;
+use PUGX\Poser\Render\SvgForTheBadgeRenderer;
 use PUGX\Poser\Render\SvgPlasticRender;
 
 final class BadgeImageRendererService
@@ -29,6 +30,7 @@ final class BadgeImageRendererService
             new SvgPlasticRender(),
             new SvgFlatRender(),
             new SvgFlatSquareRender(),
+            new SvgForTheBadgeRenderer(),
         ]);
     }
 

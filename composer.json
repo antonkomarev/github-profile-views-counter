@@ -27,11 +27,9 @@
     },
     "require": {
         "php": "^7.4",
-        "badges/poser": "^2.0",
+        "badges/poser": "^2.3",
         "vlucas/phpdotenv": "^5.0",
         "webmozart/assert": "^1.9"
-    },
-    "require-dev": {
     },
     "suggest": {
         "ext-pdo": "*"
