@@ -45,7 +45,7 @@ try {
     $badgeLabel = $_GET['label'] ?? 'Profile views';
     $badgeMessageBackgroundFill = $_GET['color'] ?? 'blue';
     $badgeStyle = $_GET['style'] ?? 'flat';
-    if (!in_array($badgeStyle, ['flat', 'flat-square', 'plastic'])) {
+    if (!in_array($badgeStyle, ['flat', 'flat-square', 'plastic', 'for-the-badge'])) {
         $badgeStyle = 'flat';
     }
     $username = $_GET['username'] ?? '';

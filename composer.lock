@@ -4,35 +4,36 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "737cdc30cb40061c9293cbe8a281a0b7",
+    "content-hash": "c195f74d31d50551002e9d651d866d6a",
     "packages": [
         {
             "name": "badges/poser",
-            "version": "v2.0.2",
+            "version": "v2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/badges/poser.git",
-                "reference": "04006c8f74458903d31a59d95153618d16f9df41"
+                "reference": "13f4ae7998700568fe1d07c8964492ea845e675c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/badges/poser/zipball/04006c8f74458903d31a59d95153618d16f9df41",
-                "reference": "04006c8f74458903d31a59d95153618d16f9df41",
+                "url": "https://api.github.com/repos/badges/poser/zipball/13f4ae7998700568fe1d07c8964492ea845e675c",
+                "reference": "13f4ae7998700568fe1d07c8964492ea845e675c",
                 "shasum": ""
             },
             "require": {
                 "ext-gd": "*",
                 "ext-simplexml": "*",
+                "kartsims/easysvg": "^2.4",
                 "php": ">=7.4",
-                "symfony/console": "^4.0|^5.0"
+                "symfony/console": "^4.0|^5.0|^6.0"
             },
             "require-dev": {
-                "behat/behat": "^3.7",
-                "friends-of-phpspec/phpspec-code-coverage": "^4.3",
-                "friendsofphp/php-cs-fixer": "^2.16",
-                "moave/phpspec-data-provider-extension": "dev-master",
-                "phpspec/phpspec": "^6.1",
-                "vimeo/psalm": "^3.12"
+                "behat/behat": "^3.8",
+                "friends-of-phpspec/phpspec-code-coverage": "^6.0",
+                "friendsofphp/php-cs-fixer": "^3.5",
+                "moave/phpspec-data-provider-extension": "dev-feat/add-compatibility-to-php80",
+                "phpspec/phpspec": "^7.0",
+                "vimeo/psalm": "^4.3"
             },
             "bin": [
                 "bin/poser"
@@ -74,7 +75,25 @@
                 "packagist",
                 "pin"
             ],
-            "time": "2020-09-17T10:21:51+00:00"
+            "support": {
+                "issues": "https://github.com/badges/poser/issues",
+                "source": "https://github.com/badges/poser/tree/v2.3.1"
+            },
+            "funding": [
+                {
+                    "url": "https://paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ETT4JRJARLTSC",
+                    "type": "custom"
+                },
+                {
+                    "url": "https://github.com/AlessandroMinoccheri",
+                    "type": "github"
+                },
+                {
+                    "url": "https://github.com/JellyBellyDev",
+                    "type": "github"
+                }
+            ],
+            "time": "2022-02-21T09:52:41+00:00"
         },
         {
             "name": "graham-campbell/result-type",
@@ -127,6 +146,52 @@
                 "result"
             ],
             "time": "2020-04-13T13:17:36+00:00"
+        },
+        {
+            "name": "kartsims/easysvg",
+            "version": "2.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartsims/easysvg.git",
+                "reference": "c105955d9da6226a681120bcce7cdcc0e6c1d8e3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartsims/easysvg/zipball/c105955d9da6226a681120bcce7cdcc0e6c1d8e3",
+                "reference": "c105955d9da6226a681120bcce7cdcc0e6c1d8e3",
+                "shasum": ""
+            },
+            "require": {
+                "ext-simplexml": "*",
+                "ext-xmlreader": "*",
+                "php": ">=7.4.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.5"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Simon Tarchichi",
+                    "email": "kartsims@gmail.com"
+                }
+            ],
+            "description": "PHP library to generate SVG XML",
+            "homepage": "https://github.com/kartsims/easysvg",
+            "support": {
+                "issues": "https://github.com/kartsims/easysvg/issues",
+                "source": "https://github.com/kartsims/easysvg/tree/master"
+            },
+            "time": "2022-02-21T09:22:32+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -953,5 +1018,6 @@
     "platform": {
         "php": "^7.4"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.2.0"
 }
