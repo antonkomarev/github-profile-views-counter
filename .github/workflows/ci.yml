@@ -19,3 +19,13 @@ jobs:
         ini-values: post_max_size=256M, max_execution_time=180
         coverage: xdebug
         tools: php-cs-fixer
+  docker_test:
+    name: Build Docker Image Test
+    runs-on: ubuntu-latest
+    env:
+      COMPOSE_FILE: docker-compose.yaml
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: Build docker images
+      run: docker-compose build
