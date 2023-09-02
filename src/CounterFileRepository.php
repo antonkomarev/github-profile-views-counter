@@ -57,8 +57,18 @@ final class CounterFileRepository implements
     private function incrementViewsCount(Username $username): void
     {
         $counterFilePath = $this->getCounterFilePath($username);
+        // Need to open the file in "c" mode to avoid truncating before acquiring the lock and before reading
+        $counterFile = fopen($counterFilePath, "c");
 
-        file_put_contents($counterFilePath, $this->getViewsCountByUsername($username) + 1);
+        // Acquire an exclusive lock to avoid two requests causing a write at the same time
+        flock($counterFile, LOCK_EX);
+        $incremented = $this->getViewsCountByUsername($username) + 1;
+        ftruncate($counterFile, 0);
+        fwrite($counterFile, "$incremented\n");
+        fflush($counterFile);
+        // Release the exclusive lock
+        flock($counterFile, LOCK_UN);
+        fclose($counterFile);
     }
 
     private function getViewsFilePath(Username $username): string
