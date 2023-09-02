@@ -28,7 +28,7 @@ $badgeImageRenderer = new BadgeImageRendererService();
 
 try {
     $dotEnv = Dotenv::createImmutable($basePath);
-    $dotEnv->safeLoad();
+    $dotEnv->load();
 
     $httpUserAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
 
