@@ -21,6 +21,8 @@ use DateTimeZone;
 final class CounterFileRepository implements
     CounterRepositoryInterface
 {
+    private const FILE_OPEN_MODE_CREATE = 'c';
+
     private string $storagePath;
 
     public function __construct(string $storagePath)
@@ -51,24 +53,62 @@ final class CounterFileRepository implements
             FILE_APPEND
         );
 
-        $this->incrementViewsCount($username);
+        try {
+            $this->incrementViewsCount($username);
+        } catch (\Exception $exception) {
+            // Do not throw exception, because counter could be re-calculated
+        }
     }
 
     private function incrementViewsCount(Username $username): void
     {
         $counterFilePath = $this->getCounterFilePath($username);
-        // Need to open the file in "c" mode to avoid truncating before acquiring the lock and before reading
-        $counterFile = fopen($counterFilePath, "c");
 
-        // Acquire an exclusive lock to avoid two requests causing a write at the same time
-        flock($counterFile, LOCK_EX);
-        $incremented = $this->getViewsCountByUsername($username) + 1;
-        ftruncate($counterFile, 0);
-        fwrite($counterFile, "$incremented\n");
-        fflush($counterFile);
-        // Release the exclusive lock
-        flock($counterFile, LOCK_UN);
-        fclose($counterFile);
+        /**
+         * Need to open the file in "c" mode to avoid truncating
+         * before acquiring the lock and before reading.
+         */
+        $counterFile = fopen($counterFilePath, self::FILE_OPEN_MODE_CREATE);
+
+        if ($counterFile === false) {
+            throw new \RuntimeException(
+                "Cannot open file `$counterFilePath` for write",
+            );
+        }
+
+        try {
+            /**
+             * Acquire an exclusive lock to avoid two requests
+             * causing write at the same time.
+             */
+            $isLockAcquired = flock($counterFile, LOCK_EX);
+
+            if ($isLockAcquired === false) {
+                throw new \RuntimeException(
+                    "Cannot acquire lock file `$counterFilePath` for write",
+                );
+            }
+
+            $fileContent = file_get_contents($counterFilePath);
+
+            /**
+             * Stop execution to avoid counter reset
+             * because of "false" to "0" conversion.
+             */
+            if ($fileContent === false) {
+                throw new \RuntimeException(
+                    "Cannot read previous counter value from file `$counterFilePath`",
+                );
+            }
+
+            $incrementedValue = intval($fileContent) + 1;
+
+            fwrite($counterFile, strval($incrementedValue));
+            fflush($counterFile);
+        } finally {
+            flock($counterFile, LOCK_UN);
+            fclose($counterFile);
+        }
     }
 
     private function getViewsFilePath(Username $username): string
