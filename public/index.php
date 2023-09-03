@@ -35,7 +35,7 @@ $isGitHubUserAgent = strpos($request->userAgent(), 'github-camo') === 0;
 $badgeLabel = $request->badgeLabel() ?? 'Profile views';
 $badgeMessageBackgroundFill = $request->badgeColor() ?? 'blue';
 $badgeStyle = $request->badgeStyle() ?? 'flat';
-if (!in_array($badgeStyle, ['flat', 'flat-square', 'plastic', 'for-the-badge', 'pixel'])) {
+if (!in_array($badgeStyle, ['flat', 'flat-square', 'plastic', 'for-the-badge', 'pixel'], true)) {
     $badgeStyle = 'flat';
 }
 
