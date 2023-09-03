@@ -14,31 +14,28 @@ declare(strict_types=1);
 use Dotenv\Exception\InvalidPathException;
 use Komarev\GitHubProfileViewsCounter\BadgeImageRendererService;
 use Komarev\GitHubProfileViewsCounter\CounterRepositoryFactory;
+use Komarev\GitHubProfileViewsCounter\Request;
 use Komarev\GitHubProfileViewsCounter\Username;
 
 $appBasePath = realpath(__DIR__ . '/..');
 
 require $appBasePath . '/vendor/autoload.php';
 
-array_walk_recursive($_GET, function (&$input) {
-    $input = htmlspecialchars($input, ENT_NOQUOTES, 'UTF-8', false);
-});
+$request = Request::of($_SERVER, $_GET);
 
-$username = $_GET['username'] ?? '';
-$username = trim($username);
+$username = trim($request->username());
 
 if ($username === '') {
     header('Location: https://github.com/antonkomarev/github-profile-views-counter');
     exit;
 }
 
-$httpUserAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
-$isGitHubUserAgent = strpos($httpUserAgent, 'github-camo') === 0;
+$isGitHubUserAgent = strpos($request->userAgent(), 'github-camo') === 0;
 
-$badgeLabel = $_GET['label'] ?? 'Profile views';
-$badgeMessageBackgroundFill = $_GET['color'] ?? 'blue';
-$badgeStyle = $_GET['style'] ?? 'flat';
-if (!in_array($badgeStyle, ['flat', 'flat-square', 'plastic', 'for-the-badge', 'pixel'])) {
+$badgeLabel = $request->badgeLabel() ?? 'Profile views';
+$badgeMessageBackgroundFill = $request->badgeColor() ?? 'blue';
+$badgeStyle = $request->badgeStyle() ?? 'flat';
+if (!in_array($badgeStyle, ['flat', 'flat-square', 'plastic', 'for-the-badge', 'pixel'], true)) {
     $badgeStyle = 'flat';
 }
 
