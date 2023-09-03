@@ -15,8 +15,6 @@ namespace Komarev\GitHubProfileViewsCounter;
 
 use Contracts\Komarev\GitHubProfileViewsCounter\CounterRepositoryInterface;
 use Contracts\Komarev\GitHubProfileViewsCounter\Exceptions\InvalidPathException;
-use DateTimeImmutable;
-use DateTimeZone;
 
 final class CounterFileRepository implements
     CounterRepositoryInterface
@@ -25,8 +23,9 @@ final class CounterFileRepository implements
 
     private string $storagePath;
 
-    public function __construct(string $storagePath)
-    {
+    public function __construct(
+        string $storagePath
+    ) {
         if (!is_dir($storagePath)) {
             throw new InvalidPathException('Counter storage is not a directory');
         }
@@ -38,15 +37,19 @@ final class CounterFileRepository implements
         $this->storagePath = $storagePath;
     }
 
-    public function getViewsCountByUsername(Username $username): int
-    {
+    public function getViewsCountByUsername(
+        Username $username
+    ): int {
         $counterFilePath = $this->getCounterFilePath($username);
 
-        return file_exists($counterFilePath) ? (int) file_get_contents($counterFilePath) : 0;
+        return file_exists($counterFilePath)
+            ? (int)file_get_contents($counterFilePath)
+            : 0;
     }
 
-    public function addViewByUsername(Username $username): void
-    {
+    public function addViewByUsername(
+        Username $username
+    ): void {
         file_put_contents(
             $this->getViewsFilePath($username),
             $this->getCurrentFormattedDateTime() . PHP_EOL,
@@ -60,8 +63,9 @@ final class CounterFileRepository implements
         }
     }
 
-    private function incrementViewsCount(Username $username): void
-    {
+    private function incrementViewsCount(
+        Username $username
+    ): void {
         $counterFilePath = $this->getCounterFilePath($username);
 
         /**
@@ -111,18 +115,21 @@ final class CounterFileRepository implements
         }
     }
 
-    private function getViewsFilePath(Username $username): string
-    {
+    private function getViewsFilePath(
+        Username $username
+    ): string {
         return $this->storagePath . '/' . $username . '-views';
     }
 
-    private function getCounterFilePath(Username $username): string
-    {
+    private function getCounterFilePath(
+        Username $username
+    ): string {
         return $this->storagePath . '/' . $username . '-views-count';
     }
 
     private function getCurrentFormattedDateTime(): string
     {
-        return (new DateTimeImmutable('now', new DateTimeZone('UTC')))->format(DATE_RFC3339_EXTENDED);
+        return (new \DateTimeImmutable('now', new \DateTimeZone('UTC')))
+            ->format(DATE_RFC3339_EXTENDED);
     }
 }

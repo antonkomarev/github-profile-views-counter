@@ -27,11 +27,16 @@ final class Username
 
     private string $username;
 
-    public function __construct(string $username)
-    {
+    public function __construct(
+        string $username
+    ) {
         Assert::minLength($username, self::LENGTH_MIN);
         Assert::maxLength($username, self::LENGTH_MAX);
-        Assert::regex($username, self::REGEX, 'Username may only contain alphanumeric characters or single hyphens, and cannot begin or end with a hyphen.');
+        Assert::regex(
+            $username,
+            self::REGEX,
+            'Username may only contain alphanumeric characters or single hyphens, and cannot begin or end with a hyphen.'
+        );
 
         $this->username = strtolower($username);
     }

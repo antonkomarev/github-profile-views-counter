@@ -23,14 +23,17 @@ final class CounterPdoRepository implements
 
     private string $tableName;
 
-    public function __construct(PDO $connection, string $tableName = null)
-    {
+    public function __construct(
+        PDO $connection,
+        string $tableName = null
+    ) {
         $this->connection = $connection;
         $this->tableName = $tableName !== null ? $tableName : 'github_profile_views';
     }
 
-    public function getViewsCountByUsername(Username $username): int
-    {
+    public function getViewsCountByUsername(
+        Username $username
+    ): int {
         $statement = $this->connection->prepare(
             'SELECT COUNT(*)
                FROM ' . $this->tableName . '
@@ -39,11 +42,12 @@ final class CounterPdoRepository implements
         $statement->bindParam('username', $username);
         $statement->execute();
 
-        return (int) $statement->fetchColumn(0);
+        return (int)$statement->fetchColumn(0);
     }
 
-    public function addViewByUsername(Username $username): void
-    {
+    public function addViewByUsername(
+        Username $username
+    ): void {
         $statement = $this->connection->prepare(
             'INSERT INTO ' . $this->tableName . '
                          (username, created_at)

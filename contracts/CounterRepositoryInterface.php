@@ -17,7 +17,11 @@ use Komarev\GitHubProfileViewsCounter\Username;
 
 interface CounterRepositoryInterface
 {
-    public function getViewsCountByUsername(Username $username): int;
+    public function getViewsCountByUsername(
+        Username $username
+    ): int;
 
-    public function addViewByUsername(Username $username): void;
+    public function addViewByUsername(
+        Username $username
+    ): void;
 }

@@ -34,18 +34,35 @@ final class BadgeImageRendererService
         ]);
     }
 
-    public function renderBadgeWithCount(string $label, int $count, string $messageBackgroundFill, string $badgeStyle): string
-    {
+    public function renderBadgeWithCount(
+        string $label,
+        int $count,
+        string $messageBackgroundFill,
+        string $badgeStyle
+    ): string {
         $message = number_format($count);
 
-        return $this->renderBadge($label, $message, $messageBackgroundFill, $badgeStyle);
+        return $this->renderBadge(
+            $label,
+            $message,
+            $messageBackgroundFill,
+            $badgeStyle,
+        );
     }
 
-    public function renderBadgeWithError(string $label, string $message, string $badgeStyle): string
-    {
+    public function renderBadgeWithError(
+        string $label,
+        string $message,
+        string $badgeStyle
+    ): string {
         $messageBackgroundFill = 'red';
 
-        return $this->renderBadge($label, $message, $messageBackgroundFill, $badgeStyle);
+        return $this->renderBadge(
+            $label,
+            $message,
+            $messageBackgroundFill,
+            $badgeStyle,
+        );
     }
 
     public function renderPixel(): string
@@ -53,8 +70,18 @@ final class BadgeImageRendererService
         return '<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1"/>';
     }
 
-    private function renderBadge(string $label, string $message, string $messageBackgroundFill, string $badgeStyle): string
-    {
-        return (string) $this->poser->generate($label, $message, $messageBackgroundFill, $badgeStyle, Badge::DEFAULT_FORMAT);
+    private function renderBadge(
+        string $label,
+        string $message,
+        string $messageBackgroundFill,
+        string $badgeStyle
+    ): string {
+        return (string)$this->poser->generate(
+            $label,
+            $message,
+            $messageBackgroundFill,
+            $badgeStyle,
+            Badge::DEFAULT_FORMAT,
+        );
     }
 }
