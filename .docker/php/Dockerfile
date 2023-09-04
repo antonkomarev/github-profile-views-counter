@@ -3,16 +3,23 @@
 # ----------------------
 FROM php:7.4-fpm-alpine AS dev
 
-RUN apk add \
+RUN apk add --no-cache --virtual .build-deps \
+    $PHPIZE_DEPS \
     freetype-dev \
-    libpng-dev
+    libpng-dev \
+    postgresql-dev
+
+# Cleanup apk cache and temp files
+RUN rm -rf /var/cache/apk/* /tmp/*
 
 # Configure php extensions
 RUN docker-php-ext-configure gd --with-freetype
 
 # Install php extensions
 RUN docker-php-ext-install \
-    gd
+    gd \
+    pdo \
+    pdo_pgsql
 
 # Cleanup apk cache and temp files
 RUN rm -rf /var/cache/apk/* /tmp/*

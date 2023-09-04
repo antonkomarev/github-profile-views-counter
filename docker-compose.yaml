@@ -7,6 +7,8 @@ services:
       context: ./
       dockerfile: ./.docker/php/Dockerfile
     restart: unless-stopped
+    depends_on:
+      - postgres
     working_dir: /app
     volumes:
       - ./:/app
@@ -29,6 +31,25 @@ services:
       - ./public:/app/public:ro
     networks:
       - ghpvc
+
+  postgres:
+    container_name: ${PROJECT_NAME}-postgres
+    image: postgres:13.4-alpine
+    restart: unless-stopped
+    ports:
+      - "${DB_PORT:-5432}:${DB_PORT:-5432}"
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    volumes:
+      - ./.docker-volume-postgres:/var/lib/postgresql/data
+    networks:
+      - ghpvc
+
+volumes:
+  .docker-volume-postgres:
+    driver: local
 
 networks:
   ghpvc:
