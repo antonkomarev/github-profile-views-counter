@@ -36,7 +36,7 @@ final class BadgeImageRendererService
 
     public function renderBadgeWithCount(
         string $label,
-        int $count,
+        float $count,
         string $messageBackgroundFill,
         string $badgeStyle
     ): string {

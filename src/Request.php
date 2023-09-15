@@ -25,18 +25,22 @@ final class Request
 
     private ?string $badgeStyle;
 
+    private ?string $baseNumber;
+
     public function __construct(
         string $userAgent,
         string $username,
         ?string $badgeLabel,
         ?string $badgeColor,
-        ?string $badgeStyle
+        ?string $badgeStyle,
+        ?string $baseNumber
     ) {
         $this->userAgent = $userAgent;
         $this->username = $username;
         $this->badgeLabel = $badgeLabel;
         $this->badgeColor = $badgeColor;
         $this->badgeStyle = $badgeStyle;
+        $this->baseNumber = $baseNumber;
     }
 
     public static function of(
@@ -53,6 +57,7 @@ final class Request
             $get['label'] ?? null,
             $get['color'] ?? null,
             $get['style'] ?? null,
+            $get['base'] ?? null,
         );
     }
 
@@ -79,5 +84,10 @@ final class Request
     public function badgeStyle(): ?string
     {
         return $this->badgeStyle;
+    }
+
+    public function baseNumber(): ?string
+    {
+        return $this->baseNumber;
     }
 }

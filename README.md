@@ -106,6 +106,16 @@ You can overwrite default `Profile views` text with your own label.
 
 > **NOTE**: Replace whitespace with `+` character in multi-word labels.
 
+### Base number
+
+You can provide a `base` number to add to the counter.
+This is useful if you are migrating from another service.
+For example, a user with 1000 views on another service who wants to migrate to GHPVC will use the following url
+to ensure the 1000 views are accounted for:
+```markdown
+![](https://komarev.com/ghpvc/?username=your-github-username&base=1000)
+```
+
 ## FAQ
 
 ### Can I see detailed statistics?
