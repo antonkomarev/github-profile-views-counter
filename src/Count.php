@@ -17,11 +17,6 @@ use Webmozart\Assert\Assert;
 
 final class Count
 {
-    /**
-     * Wrong behavior around extremely large values if set
-     * to an extremely large value (near PHP_INT_MAX)
-     * Shouldn't exceed PHP_INT_MAX to avoid casting to a float
-     */
     private const MAX_COUNT = PHP_INT_MAX;
 
     private int $count;
