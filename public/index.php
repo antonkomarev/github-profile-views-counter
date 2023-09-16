@@ -38,8 +38,8 @@ $badgeStyle = $request->badgeStyle() ?? 'flat';
 if (!in_array($badgeStyle, ['flat', 'flat-square', 'plastic', 'for-the-badge', 'pixel'], true)) {
     $badgeStyle = 'flat';
 }
-$baseNumber = $request->baseNumber() ?? '0';
-$baseNumber = ctype_digit($baseNumber) ? intval($baseNumber) : 0;
+$baseCount = $request->baseCount() ?? '0';
+$baseCount = ctype_digit($baseCount) ? intval($baseCount) : 0;
 
 header('Content-Type: image/svg+xml');
 header('Cache-Control: max-age=0, no-cache, no-store, must-revalidate');
@@ -58,7 +58,7 @@ try {
     if ($badgeStyle === 'pixel') {
         echo $badgeImageRenderer->renderPixel();
     } else {
-        $count = $counterRepository->getViewsCountByUsername($username) + $baseNumber;
+        $count = $counterRepository->getViewsCountByUsername($username) + $baseCount;
 
         echo $badgeImageRenderer->renderBadgeWithCount(
             $badgeLabel,
