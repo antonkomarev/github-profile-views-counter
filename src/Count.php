@@ -30,13 +30,18 @@ final class Count
           'The maximum number of views has been reached'
         );
         $this->count = intval($count);
+        Assert::greaterThanEq(
+          $count,
+          0,
+          "Received a negative number of views"
+        );
     }
 
     public static function ofString(string $countStr): self
     {
       Assert::digits(
         $countStr,
-        'The base count must be a positive integer'
+        'The base count must only contain digits'
       );
       $count = floatval($countStr);
       return new self($count);
