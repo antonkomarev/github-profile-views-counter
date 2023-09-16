@@ -16,7 +16,6 @@ use Komarev\GitHubProfileViewsCounter\BadgeImageRendererService;
 use Komarev\GitHubProfileViewsCounter\CounterRepositoryFactory;
 use Komarev\GitHubProfileViewsCounter\Request;
 use Komarev\GitHubProfileViewsCounter\Username;
-use Komarev\GitHubProfileViewsCounter\BaseCount;
 use Komarev\GitHubProfileViewsCounter\Count;
 
 $appBasePath = realpath(__DIR__ . '/..');
@@ -59,11 +58,14 @@ try {
     if ($badgeStyle === 'pixel') {
         echo $badgeImageRenderer->renderPixel();
     } else {
-        $baseCount = new BaseCount($baseCount);
         $count = new Count(
-            $counterRepository->getViewsCountByUsername($username),
-            $baseCount->toInt()
+            $counterRepository->getViewsCountByUsername($username)
         );
+        if ($baseCount !== '0') {
+            $count = $count->plus(
+                Count::ofString($baseCount)
+            );
+        }
 
         echo $badgeImageRenderer->renderBadgeWithCount(
             $badgeLabel,

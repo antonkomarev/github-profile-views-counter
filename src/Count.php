@@ -22,29 +22,38 @@ final class Count
      * to an extremely large value (near PHP_INT_MAX)
      * Shouldn't exceed PHP_INT_MAX to avoid casting to a float
      */
-    private const MAX_COUNT = 1E15;
+    private const MAX_COUNT = PHP_INT_MAX;
 
     private int $count;
 
     public function __construct(
-        int $count, int $baseCount
+        float $count
     ) {
-        $countSum = $count + $baseCount;
-        Assert::lessThanEq(
-          $countSum,
+        Assert::lessThan(
+          $count,
           self::MAX_COUNT,
           'The maximum number of views has been reached'
         );
-        /**
-         * No need to case countSum to int because
-         * if it is a float, it will always be greater than MAX_COUNT
-         * provided that the note above MAX_COUNT is followed
-         */
-        $this->count = $countSum;
+        $this->count = intval($count);
+    }
+
+    public static function ofString(string $countStr): self
+    {
+      Assert::digits(
+        $countStr,
+        'The base count must be a positive integer'
+      );
+      $count = floatval($countStr);
+      return new self($count);
     }
 
     public function toInt(): int
     {
         return $this->count;
+    }
+
+    public function plus(self $count): self
+    {
+      return new self($this->toInt() + $count->toInt());
     }
 }
