@@ -63,13 +63,13 @@ try {
         );
         if ($baseCount !== '0') {
             $count = $count->plus(
-                Count::ofString($baseCount)
+                Count::ofString($baseCount),
             );
         }
 
         echo $badgeImageRenderer->renderBadgeWithCount(
             $badgeLabel,
-            $count->toInt(),
+            $count,
             $badgeMessageBackgroundFill,
             $badgeStyle,
         );
