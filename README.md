@@ -110,6 +110,7 @@ You can overwrite default `Profile views` text with your own label.
 
 You can provide a `base` number to add to the counter.
 This is useful if you are migrating from another service.
+
 For example, a user with 1000 views on another service who wants to migrate to GHPVC will use the following url
 to ensure the 1000 views are accounted for:
 ```markdown
@@ -128,7 +129,7 @@ This project provides minimalistic counter only. Use [Ÿ HŸPE] service if you w
 
 ### How to reset counter?
 
-To reset counter you should login to the [Ÿ HŸPE] service and then you will be able to reset counter on the https://yhype.me/ghpvc page.
+To reset counter you should log in to the [Ÿ HŸPE] service, and then you will be able to reset counter on the https://yhype.me/ghpvc page.
 
 ### Why does the counter increase every time the page is reloaded?
 

@@ -36,11 +36,11 @@ final class BadgeImageRendererService
 
     public function renderBadgeWithCount(
         string $label,
-        int $count,
+        Count $count,
         string $messageBackgroundFill,
         string $badgeStyle
     ): string {
-        $message = number_format($count);
+        $message = $this->formatNumber($count->toInt());
 
         return $this->renderBadge(
             $label,
@@ -83,5 +83,18 @@ final class BadgeImageRendererService
             $badgeStyle,
             Badge::DEFAULT_FORMAT,
         );
+    }
+
+    /**
+     * This method required because of native `number_format`
+     * method has big integer format limitation.
+     */
+    private function formatNumber(
+        int $number
+    ): string {
+        $reversedString = strrev(strval($number));
+        $formattedNumber = implode(',', str_split($reversedString, 3));
+
+        return strrev($formattedNumber);
     }
 }

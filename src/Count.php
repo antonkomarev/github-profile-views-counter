@@ -22,29 +22,32 @@ final class Count
     private int $count;
 
     public function __construct(
-        float $count
+        int $count
     ) {
+        $this->count = $count;
+
         Assert::lessThan(
-          $count,
-          self::MAX_COUNT,
-          'The maximum number of views has been reached'
+            $count,
+            self::MAX_COUNT,
+            'The maximum number of views has been reached',
         );
-        $this->count = intval($count);
         Assert::greaterThanEq(
-          $count,
-          0,
-          "Received a negative number of views"
+            $count,
+            0,
+            'Number of views cannot be negative',
         );
     }
 
-    public static function ofString(string $countStr): self
-    {
-      Assert::digits(
-        $countStr,
-        'The base count must only contain digits'
-      );
-      $count = floatval($countStr);
-      return new self($count);
+    public static function ofString(
+        string $value
+    ): self {
+        Assert::digits(
+            $value,
+            'The base count must only contain digits',
+        );
+        $count = intval($value);
+
+        return new self($count);
     }
 
     public function toInt(): int
@@ -52,8 +55,17 @@ final class Count
         return $this->count;
     }
 
-    public function plus(self $count): self
-    {
-      return new self($this->toInt() + $count->toInt());
+    public function plus(
+        self $that
+    ): self {
+        $sum = $this->toInt() + $that->toInt();
+
+        if (!is_int($sum)) {
+            throw new \InvalidArgumentException(
+                'The maximum number of views has been reached',
+            );
+        }
+
+        return new self($sum);
     }
 }
