@@ -56,9 +56,9 @@ final class Count
     }
 
     public function plus(
-        self $count
+        self $that
     ): self {
-        $sum = $this->toInt() + $count->toInt();
+        $sum = $this->toInt() + $that->toInt();
 
         if (!is_int($sum)) {
             throw new \InvalidArgumentException(
