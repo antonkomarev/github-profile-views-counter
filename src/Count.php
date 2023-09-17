@@ -39,13 +39,13 @@ final class Count
     }
 
     public static function ofString(
-        string $countStr
+        string $value
     ): self {
         Assert::digits(
-            $countStr,
+            $value,
             'The base count must only contain digits',
         );
-        $count = intval($countStr);
+        $count = intval($value);
 
         return new self($count);
     }
