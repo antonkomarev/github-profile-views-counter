@@ -27,10 +27,10 @@ final class BadgeImageRendererService
     public function __construct()
     {
         $this->poser = new Poser([
-            new SvgPlasticRender(),
-            new SvgFlatRender(),
-            new SvgFlatSquareRender(),
-            new SvgForTheBadgeRenderer(),
+            new SvgPlasticRender(new SvgTextSizeCalculator()),
+            new SvgFlatRender(new SvgTextSizeCalculator()),
+            new SvgFlatSquareRender(new SvgTextSizeCalculator()),
+            new SvgForTheBadgeRenderer(null, new SvgTextSizeCalculator()),
         ]);
     }
 
