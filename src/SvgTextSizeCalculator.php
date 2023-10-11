@@ -17,7 +17,7 @@ class SvgTextSizeCalculator implements TextSizeCalculatorInterface
      */
     public function calculateWidth(string $text, int $size = self::TEXT_SIZE): float
     {
-        $font = SvgFont::fromFile(__DIR__ . '/DejaVuSans-webfont.svg');
+        $font = SvgFont::fromFile(__DIR__ . '/DejaVuSans.svg');
 
         $textUnicode = TextUnicodeConverter::convertTextToCodePoints($text);
 
