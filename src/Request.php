@@ -27,13 +27,16 @@ final class Request
 
     private ?string $baseCount;
 
+    private ?string $withAbbreviation;
+
     public function __construct(
         string $userAgent,
         string $username,
         ?string $badgeLabel,
         ?string $badgeColor,
         ?string $badgeStyle,
-        ?string $baseCount
+        ?string $baseCount,
+        ?string $withAbbreviation
     ) {
         $this->userAgent = $userAgent;
         $this->username = $username;
@@ -41,6 +44,7 @@ final class Request
         $this->badgeColor = $badgeColor;
         $this->badgeStyle = $badgeStyle;
         $this->baseCount = $baseCount;
+        $this->withAbbreviation = $withAbbreviation;
     }
 
     public static function of(
@@ -89,5 +93,10 @@ final class Request
     public function baseCount(): ?string
     {
         return $this->baseCount;
+    }
+
+    public function withAbbreviation(): ?string
+    {
+        return $this->withAbbreviation;
     }
 }

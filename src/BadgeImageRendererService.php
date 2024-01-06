@@ -24,6 +24,8 @@ final class BadgeImageRendererService
 {
     private Poser $poser;
 
+    private const SUFFIXES = ["", "k", "M", "B", "T"];
+
     public function __construct()
     {
         $this->poser = new Poser([
@@ -39,8 +41,9 @@ final class BadgeImageRendererService
         Count $count,
         string $messageBackgroundFill,
         string $badgeStyle
+        boolean $withAbbreviation = false
     ): string {
-        $message = $this->formatNumber($count->toInt());
+        $message = $this->formatNumber($count->toInt(), $withAbbreviation);
 
         return $this->renderBadge(
             $label,
@@ -90,11 +93,30 @@ final class BadgeImageRendererService
      * method has big integer format limitation.
      */
     private function formatNumber(
-        int $number
+        int $number,
+        boolean $withAbbreviation = false
     ): string {
-        $reversedString = strrev(strval($number));
-        $formattedNumber = implode(',', str_split($reversedString, 3));
+        $abbreviation = strval($number)
+        if ($withAbbreviation) {
+            $abbreviation = $this->formatAbbreviatedNumber($number);
+        }else{
+            $reversedString = strrev(strval($number));
+            $formattedNumber = implode(',', str_split($reversedString, 3));
+            $abbreviation= strrev($formattedNumber)
+        }
+        return $abbreviation;
+    }
 
-        return strrev($formattedNumber);
+    public function toAbbreviated(): string
+    {
+        $count = $this->count;
+        $suffixIndex = 0;
+
+        while ($count >= 1000) {
+            $count /= 1000;
+            $suffixIndex++;
+        }
+
+        return round($count, 1) . self::SUFFIXES[$suffixIndex];
     }
 }
