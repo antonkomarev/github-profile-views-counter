@@ -27,13 +27,16 @@ final class Request
 
     private ?string $baseCount;
 
+    private bool $isCountAbbreviated;
+
     public function __construct(
         string $userAgent,
         string $username,
         ?string $badgeLabel,
         ?string $badgeColor,
         ?string $badgeStyle,
-        ?string $baseCount
+        ?string $baseCount,
+        bool $isCountAbbreviated
     ) {
         $this->userAgent = $userAgent;
         $this->username = $username;
@@ -41,6 +44,7 @@ final class Request
         $this->badgeColor = $badgeColor;
         $this->badgeStyle = $badgeStyle;
         $this->baseCount = $baseCount;
+        $this->isCountAbbreviated = $isCountAbbreviated;
     }
 
     public static function of(
@@ -58,6 +62,7 @@ final class Request
             $get['color'] ?? null,
             $get['style'] ?? null,
             $get['base'] ?? null,
+            boolval($get['abbreviated'] ?? false),
         );
     }
 
@@ -89,5 +94,10 @@ final class Request
     public function baseCount(): ?string
     {
         return $this->baseCount;
+    }
+
+    public function isCountAbbreviated(): bool
+    {
+        return $this->isCountAbbreviated;
     }
 }

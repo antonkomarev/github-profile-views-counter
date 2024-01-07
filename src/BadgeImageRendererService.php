@@ -24,6 +24,8 @@ final class BadgeImageRendererService
 {
     private Poser $poser;
 
+    private const ABBREVIATIONS = ['', 'K', 'M', 'B', 'T', 'Qa', 'Qi'];
+
     public function __construct()
     {
         $this->poser = new Poser([
@@ -38,9 +40,10 @@ final class BadgeImageRendererService
         string $label,
         Count $count,
         string $messageBackgroundFill,
-        string $badgeStyle
+        string $badgeStyle,
+        bool $isCountAbbreviated
     ): string {
-        $message = $this->formatNumber($count->toInt());
+        $message = $this->formatNumber($count->toInt(), $isCountAbbreviated);
 
         return $this->renderBadge(
             $label,
@@ -90,11 +93,29 @@ final class BadgeImageRendererService
      * method has big integer format limitation.
      */
     private function formatNumber(
-        int $number
+        int $number,
+        bool $isCountAbbreviated
     ): string {
+        if ($isCountAbbreviated) {
+            return $this->formatAbbreviatedNumber($number);
+        }
+
         $reversedString = strrev(strval($number));
         $formattedNumber = implode(',', str_split($reversedString, 3));
 
         return strrev($formattedNumber);
+    }
+
+    public function formatAbbreviatedNumber(
+        int $number
+    ): string {
+        $abbreviationIndex = 0;
+
+        while ($number >= 1000) {
+            $number /= 1000;
+            $abbreviationIndex++;
+        }
+
+        return round($number, 1) . self::ABBREVIATIONS[$abbreviationIndex];
     }
 }
