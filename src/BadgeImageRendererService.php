@@ -24,7 +24,7 @@ final class BadgeImageRendererService
 {
     private Poser $poser;
 
-    private const SUFFIXES = ["", "k", "M", "B", "T"];
+    private const SUFFIXES = ['', 'K', 'M', 'B', 'T'];
 
     public function __construct()
     {
@@ -40,10 +40,10 @@ final class BadgeImageRendererService
         string $label,
         Count $count,
         string $messageBackgroundFill,
-        string $badgeStyle
-        boolean $withAbbreviation = false
+        string $badgeStyle,
+        bool $isCountAbbreviated
     ): string {
-        $message = $this->formatNumber($count->toInt(), $withAbbreviation);
+        $message = $this->formatNumber($count->toInt(), $isCountAbbreviated);
 
         return $this->renderBadge(
             $label,
@@ -94,29 +94,28 @@ final class BadgeImageRendererService
      */
     private function formatNumber(
         int $number,
-        boolean $withAbbreviation = false
+        bool $isCountAbbreviated
     ): string {
-        $abbreviation = strval($number)
-        if ($withAbbreviation) {
-            $abbreviation = $this->formatAbbreviatedNumber($number);
-        }else{
-            $reversedString = strrev(strval($number));
-            $formattedNumber = implode(',', str_split($reversedString, 3));
-            $abbreviation= strrev($formattedNumber)
+        if ($isCountAbbreviated) {
+            return $this->formatAbbreviatedNumber($number);
         }
-        return $abbreviation;
+
+        $reversedString = strrev(strval($number));
+        $formattedNumber = implode(',', str_split($reversedString, 3));
+
+        return strrev($formattedNumber);
     }
 
-    public function toAbbreviated(): string
-    {
-        $count = $this->count;
+    public function formatAbbreviatedNumber(
+        int $number
+    ): string {
         $suffixIndex = 0;
 
-        while ($count >= 1000) {
-            $count /= 1000;
+        while ($number >= 1000) {
+            $number /= 1000;
             $suffixIndex++;
         }
 
-        return round($count, 1) . self::SUFFIXES[$suffixIndex];
+        return round($number, 1) . self::SUFFIXES[$suffixIndex];
     }
 }
