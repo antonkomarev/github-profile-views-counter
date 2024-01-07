@@ -121,7 +121,9 @@ to ensure the 1000 views are accounted for:
 
 You can set the `abbreviated` parameter to `true` if you would like the counter to be abbreviated.
 
-For example, a counter with 12345 views, will be displayed as 12K.
+For example, a counter with 12345 views, will be displayed as 12.3K.
+
+![](https://img.shields.io/static/v1?label=Profile+views&message=12.3K&color=007ec6)
 
 ```markdown
 ![](https://komarev.com/ghpvc/?username=your-github-username&abbreviated=true)
