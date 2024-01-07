@@ -1,7 +1,7 @@
 # ----------------------
 # The FPM base container
 # ----------------------
-FROM php:7.4-fpm-alpine AS dev
+FROM php:8.2-fpm-alpine AS dev
 
 RUN apk add --no-cache --virtual .build-deps \
     $PHPIZE_DEPS \

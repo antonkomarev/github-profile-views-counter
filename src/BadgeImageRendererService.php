@@ -14,6 +14,7 @@ declare(strict_types=1);
 namespace Komarev\GitHubProfileViewsCounter;
 
 use PUGX\Poser\Badge;
+use PUGX\Poser\Calculator\SvgTextSizeCalculator;
 use PUGX\Poser\Poser;
 use PUGX\Poser\Render\SvgFlatRender;
 use PUGX\Poser\Render\SvgFlatSquareRender;
@@ -29,10 +30,18 @@ final class BadgeImageRendererService
     public function __construct()
     {
         $this->poser = new Poser([
-            new SvgPlasticRender(),
-            new SvgFlatRender(),
-            new SvgFlatSquareRender(),
-            new SvgForTheBadgeRenderer(),
+            new SvgPlasticRender(
+                textSizeCalculator: new SvgTextSizeCalculator(),
+            ),
+            new SvgFlatRender(
+                textSizeCalculator: new SvgTextSizeCalculator(),
+            ),
+            new SvgFlatSquareRender(
+                textSizeCalculator: new SvgTextSizeCalculator(),
+            ),
+            new SvgForTheBadgeRenderer(
+                textSizeCalculator: new SvgTextSizeCalculator(),
+            ),
         ]);
     }
 
@@ -41,7 +50,7 @@ final class BadgeImageRendererService
         Count $count,
         string $messageBackgroundFill,
         string $badgeStyle,
-        bool $isCountAbbreviated
+        bool $isCountAbbreviated,
     ): string {
         $message = $this->formatNumber($count->toInt(), $isCountAbbreviated);
 
@@ -56,7 +65,7 @@ final class BadgeImageRendererService
     public function renderBadgeWithError(
         string $label,
         string $message,
-        string $badgeStyle
+        string $badgeStyle,
     ): string {
         $messageBackgroundFill = 'red';
 
@@ -77,7 +86,7 @@ final class BadgeImageRendererService
         string $label,
         string $message,
         string $messageBackgroundFill,
-        string $badgeStyle
+        string $badgeStyle,
     ): string {
         return (string)$this->poser->generate(
             $label,
@@ -94,7 +103,7 @@ final class BadgeImageRendererService
      */
     private function formatNumber(
         int $number,
-        bool $isCountAbbreviated
+        bool $isCountAbbreviated,
     ): string {
         if ($isCountAbbreviated) {
             return $this->formatAbbreviatedNumber($number);
@@ -107,7 +116,7 @@ final class BadgeImageRendererService
     }
 
     public function formatAbbreviatedNumber(
-        int $number
+        int $number,
     ): string {
         $abbreviationIndex = 0;
 

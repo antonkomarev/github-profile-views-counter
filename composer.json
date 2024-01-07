@@ -26,13 +26,14 @@
         }
     },
     "require": {
-        "php": "^7.4|^8.0",
-        "badges/poser": "^2.3",
-        "vlucas/phpdotenv": "^5.0",
-        "webmozart/assert": "^1.9"
+        "php": "^8.1",
+        "badges/poser": "^3.1",
+        "vlucas/phpdotenv": "v5.6",
+        "webmozart/assert": "^1.11"
     },
     "suggest": {
-        "ext-pdo": "*"
+        "ext-pdo": "*",
+        "ext-simplexml": "*"
     },
     "config": {
         "sort-packages": true
