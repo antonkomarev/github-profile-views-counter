@@ -119,11 +119,12 @@ to ensure the 1000 views are accounted for:
 
 ### Abbreviation
 
-You can set the `withAbbreviation` parameter to `true` if you would like the counter to be abbreviated.
+You can set the `abbreviated` parameter to `true` if you would like the counter to be abbreviated.
 
-For example, a user with 12345 views, can choose to display it as 12k.
+For example, a counter with 12345 views, will be displayed as 12K.
+
 ```markdown
-![](https://komarev.com/ghpvc/?username=your-github-username&withAbbreviation=true)
+![](https://komarev.com/ghpvc/?username=your-github-username&abbreviated=true)
 ```
 
 ## FAQ
