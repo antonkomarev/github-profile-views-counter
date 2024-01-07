@@ -24,7 +24,7 @@ final class BadgeImageRendererService
 {
     private Poser $poser;
 
-    private const SUFFIXES = ['', 'K', 'M', 'B', 'T'];
+    private const ABBREVIATIONS = ['', 'K', 'M', 'B', 'T', 'Qa', 'Qi'];
 
     public function __construct()
     {
@@ -109,13 +109,13 @@ final class BadgeImageRendererService
     public function formatAbbreviatedNumber(
         int $number
     ): string {
-        $suffixIndex = 0;
+        $abbreviationIndex = 0;
 
         while ($number >= 1000) {
             $number /= 1000;
-            $suffixIndex++;
+            $abbreviationIndex++;
         }
 
-        return round($number, 1) . self::SUFFIXES[$suffixIndex];
+        return round($number, 1) . self::ABBREVIATIONS[$abbreviationIndex];
     }
 }
