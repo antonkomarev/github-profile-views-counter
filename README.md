@@ -93,6 +93,7 @@ The following styles are available (`flat` is the default).
 | `flat-square` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=007ec6&style=flat-square) |
 | `plastic` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=007ec6&style=plastic) |
 | `for-the-badge` | ![](https://img.shields.io/static/v1?label=Profile+views&message=1234567890&color=007ec6&style=for-the-badge) |
+| `pixel` | this is "invisible" mode for counter. Use it when you want to have counter without of displaying of it |
 
 ```markdown
 ![](https://komarev.com/ghpvc/?username=your-github-username&style=flat-square)
