@@ -1,0 +1,41 @@
+[package]
+name = "github-profile-views-counter"
+version = "0.1.0"
+edition = "2024"
+description = "GitHub Profile Views Counter - A badge generation service"
+license = "MIT"
+
+[dependencies]
+# Web framework
+axum = "0.8"
+tokio = { version = "1", features = ["full"] }
+tower-http = { version = "0.6", features = ["cors"] }
+
+# Badge generation
+shields = "1"
+
+# Database
+sqlx = { version = "0.8", features = ["runtime-tokio", "postgres"], optional = true }
+
+# File locking
+fs2 = "0.4"
+
+# Environment and configuration
+dotenvy = "0.15"
+
+# Serialization
+serde = { version = "1", features = ["derive"] }
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+# Error handling
+thiserror = "2"
+
+[dev-dependencies]
+tempfile = "3"
+
+[features]
+default = []
+postgres = ["sqlx"]
