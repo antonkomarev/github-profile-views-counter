@@ -9,7 +9,7 @@ jobs:
     strategy:
       matrix:
         operating-system: ['ubuntu-latest', 'windows-latest', 'macos-latest']
-        php-versions: ['7.4', '8.0', '8.1']
+        php-versions: ['8.2', '8.3', '8.4', '8.5']
     steps:
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
@@ -26,6 +26,6 @@ jobs:
       COMPOSE_FILE: docker-compose.yaml
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - name: Build docker images
       run: docker-compose build

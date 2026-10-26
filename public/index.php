@@ -20,6 +20,29 @@ use Komarev\GitHubProfileViewsCounter\Count;
 
 $appBasePath = realpath(__DIR__ . '/..');
 
+/*
+ * Security guard: CVE-2026-109618 and CVE-2026-109619 (php2shell) are
+ * unauthenticated RCE flaws in PHP itself. Fixed in 8.2.35, 8.3.36,
+ * 8.4.27 and 8.5.12. Refuse to serve requests on vulnerable builds.
+ */
+$patchedPhpVersions = [
+    '8.2' => '8.2.35',
+    '8.3' => '8.3.36',
+    '8.4' => '8.4.27',
+    '8.5' => '8.5.12',
+];
+$phpBranch = PHP_MAJOR_VERSION . '.' . PHP_MINOR_VERSION;
+$isPhpPatched = isset($patchedPhpVersions[$phpBranch])
+    ? version_compare(PHP_VERSION, $patchedPhpVersions[$phpBranch], '>=')
+    : version_compare(PHP_VERSION, '8.6', '>=');
+
+if (!$isPhpPatched) {
+    http_response_code(503);
+    header('Content-Type: text/plain');
+    echo 'Service unavailable: PHP runtime must be upgraded (CVE-2026-109618, CVE-2026-109619).';
+    exit;
+}
+
 require $appBasePath . '/vendor/autoload.php';
 
 $request = Request::of($_SERVER, $_GET);
