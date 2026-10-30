@@ -29,7 +29,7 @@
         "php": "^8.1",
         "badges/poser": "3.1.1",
         "vlucas/phpdotenv": "5.6.2",
-        "webmozart/assert": "1.11.0"
+        "webmozart/assert": "2.5.0"
     },
     "suggest": {
         "ext-pdo": "*",
